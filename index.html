@@ -10,61 +10,57 @@
     :root,
     :root[data-theme="dark"]{
       --bg: #0b1220;
-      --bg2: #08101d;
-      --panel: rgba(255,255,255,0.06);
-      --panel2: rgba(255,255,255,0.08);
-      --panel3: rgba(255,255,255,0.04);
+      --bg-soft: #101a2d;
+      --panel: rgba(255,255,255,0.05);
+      --panel-2: rgba(255,255,255,0.08);
+      --panel-3: rgba(255,255,255,0.03);
       --line: rgba(255,255,255,0.10);
-      --line-strong: rgba(255,255,255,0.14);
+      --line-2: rgba(255,255,255,0.16);
       --text: rgba(255,255,255,0.94);
       --muted: rgba(148,163,184,0.92);
       --soft: rgba(255,255,255,0.58);
       --accent: #10a37f;
-      --accent-2: #0b8a6b;
+      --accent-2: #0c8a6b;
       --danger: #ef4444;
-      --shadow: 0 18px 45px rgba(0,0,0,0.55);
-      --shadow-soft: 0 12px 28px rgba(0,0,0,0.30);
-      --r12: 12px;
-      --r14: 14px;
-      --r16: 16px;
-      --r18: 18px;
-      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
+      --shadow: 0 18px 45px rgba(0,0,0,0.58);
+      --radius-1: 12px;
+      --radius-2: 16px;
+      --radius-3: 18px;
+      --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", sans-serif;
     }
 
     :root[data-theme="light"]{
       --bg: #f4f7fb;
-      --bg2: #edf2f7;
-      --panel: rgba(255,255,255,0.92);
-      --panel2: rgba(255,255,255,0.98);
-      --panel3: rgba(255,255,255,0.82);
+      --bg-soft: #edf3fb;
+      --panel: rgba(255,255,255,0.86);
+      --panel-2: rgba(255,255,255,0.96);
+      --panel-3: rgba(255,255,255,0.72);
       --line: rgba(15,23,42,0.10);
-      --line-strong: rgba(15,23,42,0.16);
+      --line-2: rgba(15,23,42,0.14);
       --text: #0f172a;
       --muted: #64748b;
       --soft: #475569;
       --accent: #10a37f;
-      --accent-2: #0b8a6b;
+      --accent-2: #0c8a6b;
       --danger: #dc2626;
       --shadow: 0 14px 34px rgba(2,6,23,0.10);
-      --shadow-soft: 0 10px 24px rgba(2,6,23,0.08);
     }
 
     :root[data-theme="glass"]{
-      --bg: #dce8f5;
-      --bg2: #edf4fb;
-      --panel: rgba(255,255,255,0.36);
-      --panel2: rgba(255,255,255,0.48);
-      --panel3: rgba(255,255,255,0.28);
+      --bg: #dfe8f4;
+      --bg-soft: #edf3fa;
+      --panel: rgba(255,255,255,0.28);
+      --panel-2: rgba(255,255,255,0.38);
+      --panel-3: rgba(255,255,255,0.22);
       --line: rgba(15,23,42,0.10);
-      --line-strong: rgba(15,23,42,0.16);
+      --line-2: rgba(15,23,42,0.14);
       --text: #0f172a;
       --muted: #475569;
       --soft: #64748b;
       --accent: #10a37f;
-      --accent-2: #0b8a6b;
+      --accent-2: #0c8a6b;
       --danger: #dc2626;
-      --shadow: 0 14px 34px rgba(2,6,23,0.09);
-      --shadow-soft: 0 10px 24px rgba(2,6,23,0.08);
+      --shadow: 0 14px 34px rgba(2,6,23,0.08);
     }
 
     *{ box-sizing:border-box; }
@@ -75,9 +71,9 @@
       margin:0;
       font-family:var(--font);
       background:
-        radial-gradient(40rem 26rem at 14% 10%, rgba(16,163,127,0.10), transparent 56%),
-        radial-gradient(34rem 24rem at 86% 12%, rgba(2,132,199,0.08), transparent 58%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
+        radial-gradient(40rem 26rem at 12% 10%, rgba(16,163,127,0.10), transparent 55%),
+        radial-gradient(36rem 24rem at 88% 14%, rgba(2,132,199,0.08), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg));
       color:var(--text);
       font-size:14px;
       line-height:1.45;
@@ -86,24 +82,26 @@
 
     a{ color:inherit; text-decoration:none; }
     button, input, select, audio{ font:inherit; }
+    img{ display:block; max-width:100%; }
 
     .sn-page{
-      max-width: 1380px;
+      max-width: 1320px;
       margin: 0 auto;
-      padding: 14px 12px 112px;
+      padding: 16px 12px 108px;
     }
 
     .sn-shell{
       display:grid;
-      grid-template-columns: minmax(250px, 290px) minmax(0, 1fr) minmax(230px, 270px);
+      grid-template-columns: minmax(250px, 320px) minmax(0, 1fr) minmax(240px, 290px);
       gap: 14px;
       align-items:start;
     }
 
-    .sn-card{
-      border-radius: var(--r18);
+    .sn-card,
+    .box{
+      border-radius: var(--radius-3);
       border: 1px solid var(--line);
-      background: linear-gradient(180deg, var(--panel2), var(--panel));
+      background: linear-gradient(180deg, var(--panel-2), var(--panel));
       box-shadow: var(--shadow);
       backdrop-filter: blur(12px);
     }
@@ -111,7 +109,7 @@
     .sn-left{
       position: sticky;
       top: 14px;
-      padding: 14px;
+      padding: 16px;
     }
 
     .sn-brand-row{
@@ -119,7 +117,7 @@
       align-items:flex-start;
       justify-content:space-between;
       gap:12px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .sn-brand{
@@ -128,48 +126,41 @@
 
     .sn-brand-title{
       margin:0;
-      font-size: 15px;
-      font-weight: 900;
-      letter-spacing: .16em;
+      font-size:15px;
+      font-weight:900;
+      letter-spacing:.16em;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
     }
 
     .sn-brand-sub{
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.35;
+      margin-top:4px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.4;
     }
 
     .sn-theme{
-      min-height: 34px;
+      min-height: 36px;
       border-radius: 12px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.02);
+      background: rgba(255,255,255,0.03);
       color: var(--text);
-      padding: 0 11px;
-      outline: 0;
-      min-width: 78px;
-    }
-
-    html[data-theme="light"] .sn-theme,
-    html[data-theme="glass"] .sn-theme{
-      background: rgba(255,255,255,0.45);
+      padding: 0 12px;
+      outline:0;
     }
 
     .sn-pill{
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding: 8px 12px;
+      padding: 9px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(16,163,127,0.22);
+      border: 1px solid rgba(16,163,127,0.24);
       background: rgba(16,163,127,0.12);
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 700;
-      color: var(--text);
       margin-bottom: 14px;
     }
 
@@ -178,23 +169,21 @@
       height:8px;
       border-radius:999px;
       background: var(--accent);
-      flex: 0 0 auto;
+      flex:0 0 auto;
     }
 
     .sn-hero{
       margin:0 0 10px;
-      font-size: clamp(28px, 4vw, 38px);
-      line-height: 0.98;
+      font-size: clamp(32px, 4vw, 46px);
+      line-height: 1.01;
       letter-spacing: -.03em;
       font-weight: 900;
-      max-width: 10ch;
     }
 
     .sn-copy{
       color: var(--muted);
-      font-size: 13px;
+      font-size: 14px;
       line-height: 1.65;
-      max-width: 34ch;
     }
 
     .sn-bullets{
@@ -208,84 +197,73 @@
       gap:10px;
       align-items:flex-start;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 14px;
       line-height: 1.5;
     }
 
     .sn-check{
-      width: 20px;
-      height: 20px;
-      border-radius: 7px;
-      border: 1px solid rgba(16,163,127,0.22);
+      width:20px;
+      height:20px;
+      border-radius:7px;
+      border:1px solid rgba(16,163,127,0.22);
       background: rgba(16,163,127,0.12);
       color: var(--accent);
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size: 12px;
-      font-weight: 900;
-      flex: 0 0 auto;
-      margin-top: 1px;
+      font-size:12px;
+      font-weight:900;
+      flex:0 0 auto;
+      margin-top:1px;
     }
 
     .sn-actions{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin-top: 4px;
+      margin-top:4px;
     }
 
-    .btn,
-    .miniBtn{
-      border: 1px solid var(--line);
+    .btn{
+      border:1px solid var(--line);
       background: rgba(255,255,255,0.04);
       color: var(--text);
       border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 13px;
+      font-weight: 700;
       cursor:pointer;
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:8px;
-      user-select:none;
-      white-space: nowrap;
       transition: background .14s ease, border-color .14s ease, transform .14s ease;
+      user-select:none;
+      white-space:nowrap;
     }
 
-    html[data-theme="light"] .btn,
-    html[data-theme="light"] .miniBtn,
-    html[data-theme="glass"] .btn,
-    html[data-theme="glass"] .miniBtn{
-      background: rgba(255,255,255,0.36);
-    }
-
-    .btn:hover,
-    .miniBtn:hover{
+    .btn:hover{
       background: rgba(16,163,127,0.10);
       border-color: rgba(16,163,127,0.22);
     }
 
-    .btn:active,
-    .miniBtn:active{
-      transform: translateY(1px);
-    }
-
-    .btn{
-      padding: 10px 12px;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .btn.slim,
-    .miniBtn{
-      padding: 8px 11px;
-      font-size: 12.5px;
-      border-radius: 12px;
-      font-weight: 700;
-    }
+    .btn:active{ transform: translateY(1px); }
 
     .btn.primary{
       background: rgba(16,163,127,0.16);
       border-color: rgba(16,163,127,0.24);
+    }
+
+    .btn.slim{
+      padding: 8px 11px;
+      font-size: 12.5px;
+      border-radius: 12px;
+    }
+
+    .btn.is-playing{
+      cursor: default;
+      border-color: rgba(16,163,127,0.40);
+      background: rgba(16,163,127,0.24);
     }
 
     .sn-note{
@@ -311,21 +289,21 @@
     .sn-center-head{
       position: sticky;
       top: 0;
-      z-index: 8;
+      z-index: 10;
       padding: 12px;
       border-bottom: 1px solid var(--line);
-      background: linear-gradient(to bottom, rgba(11,18,32,0.94), rgba(11,18,32,0.76));
+      background: linear-gradient(to bottom, rgba(11,18,32,0.94), rgba(11,18,32,0.78));
       backdrop-filter: blur(10px);
     }
 
     html[data-theme="light"] .sn-center-head,
     html[data-theme="glass"] .sn-center-head{
-      background: linear-gradient(to bottom, rgba(255,255,255,0.96), rgba(255,255,255,0.84));
+      background: linear-gradient(to bottom, rgba(255,255,255,0.92), rgba(255,255,255,0.80));
     }
 
     .controls{
       display:grid;
-      grid-template-columns: 1.18fr 1fr .86fr;
+      grid-template-columns: 1.2fr 1fr .85fr;
       gap: 10px;
       align-items:center;
     }
@@ -336,7 +314,7 @@
       border-radius: 14px;
       padding: 9px 11px;
       display:flex;
-      gap: 10px;
+      gap:10px;
       align-items:center;
       min-height: 42px;
     }
@@ -356,14 +334,12 @@
       font-size:13px;
     }
 
-    .field input::placeholder{
-      color:var(--muted);
-    }
+    .field input::placeholder{ color:var(--muted); }
 
     .actionsRow{
       margin-top: 10px;
       display:flex;
-      gap: 10px;
+      gap:10px;
       align-items:center;
       justify-content:space-between;
       flex-wrap:wrap;
@@ -372,10 +348,10 @@
     .switchWrap{
       display:flex;
       align-items:center;
-      gap: 9px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
+      gap:9px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
       background: rgba(0,0,0,0.14);
     }
 
@@ -391,14 +367,14 @@
     }
 
     .switch{
-      width: 42px;
-      height: 24px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
+      width:42px;
+      height:24px;
+      border-radius:999px;
+      border:1px solid var(--line);
       background: rgba(255,255,255,0.06);
-      position: relative;
-      cursor: pointer;
-      flex: 0 0 auto;
+      position:relative;
+      cursor:pointer;
+      flex:0 0 auto;
     }
 
     .switch::after{
@@ -409,7 +385,7 @@
       position:absolute;
       top:2px;
       left:2px;
-      background: rgba(255,255,255,0.78);
+      background: rgba(255,255,255,0.80);
       transition: transform 160ms ease, background 160ms ease;
     }
 
@@ -426,32 +402,28 @@
     .metaRow{
       padding: 10px 12px 0;
       display:flex;
-      gap: 10px;
+      gap:10px;
       align-items:center;
       justify-content:space-between;
-      color: var(--muted);
-      font-size: 12.5px;
+      color:var(--muted);
+      font-size:12.5px;
       flex-wrap:wrap;
-    }
-
-    .metaHint{
-      color: var(--soft);
     }
 
     .list{
       padding: 12px;
       display:flex;
       flex-direction:column;
-      gap: 10px;
+      gap:10px;
     }
 
     .station{
-      border-radius: var(--r18);
+      border-radius: var(--radius-3);
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.03);
       padding: 12px;
       display:flex;
-      gap: 12px;
+      gap:12px;
       align-items:flex-start;
       transition: transform 120ms ease, border-color 120ms ease;
     }
@@ -462,21 +434,21 @@
     }
 
     .art{
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      border:1px solid var(--line);
       background: rgba(0,0,0,0.18);
       overflow:hidden;
       display:flex;
       align-items:center;
       justify-content:center;
-      flex: 0 0 auto;
+      flex:0 0 auto;
     }
 
     html[data-theme="light"] .art,
     html[data-theme="glass"] .art{
-      background: rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.48);
     }
 
     .art img{
@@ -486,9 +458,9 @@
     }
 
     .fallbackIcon{
-      width: 20px;
-      height: 20px;
-      opacity: .9;
+      width:20px;
+      height:20px;
+      opacity:.92;
     }
 
     .info{
@@ -497,10 +469,10 @@
     }
 
     .name{
-      font-weight: 850;
-      font-size: 14px;
-      line-height: 1.25;
-      margin: 2px 0 7px;
+      font-weight:850;
+      font-size:14px;
+      line-height:1.25;
+      margin:2px 0 7px;
       overflow:hidden;
       text-overflow:ellipsis;
       white-space:nowrap;
@@ -509,25 +481,26 @@
     .chips{
       display:flex;
       flex-wrap:wrap;
-      gap: 7px;
+      gap:7px;
     }
 
     .chip{
       display:inline-flex;
       align-items:center;
-      gap: 6px;
-      padding: 5px 9px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
+      gap:6px;
+      padding:5px 9px;
+      border-radius:999px;
+      border:1px solid var(--line);
       background: rgba(0,0,0,0.14);
       color: var(--muted);
       font-size: 11.5px;
-      line-height: 1;
+      line-height:1;
+      max-width: 100%;
     }
 
     html[data-theme="light"] .chip,
     html[data-theme="glass"] .chip{
-      background: rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.48);
     }
 
     .chip.green{
@@ -539,15 +512,9 @@
     .stationActions{
       display:flex;
       flex-direction:column;
-      gap: 8px;
+      gap:8px;
       align-items:flex-end;
       flex:0 0 auto;
-    }
-
-    .btn.is-playing{
-      cursor: default;
-      border-color: rgba(16,163,127,0.42);
-      background: rgba(16,163,127,0.26);
     }
 
     .loadRow{
@@ -571,16 +538,11 @@
     html[data-theme="light"] .errorBox,
     html[data-theme="glass"] .notice,
     html[data-theme="glass"] .errorBox{
-      background: rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.48);
     }
 
-    .errorBox{
-      border-color: rgba(239,68,68,0.35);
-    }
-
-    .errorBox b{
-      color: var(--text);
-    }
+    .errorBox{ border-color: rgba(239,68,68,0.35); }
+    .errorBox b{ color:var(--text); }
 
     .sn-right{
       position: sticky;
@@ -591,17 +553,13 @@
     }
 
     .box{
-      border-radius: var(--r18);
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, var(--panel2), var(--panel));
-      box-shadow: var(--shadow);
       padding: 12px;
     }
 
     .box h3{
       margin:0 0 8px;
-      font-size: 14px;
-      font-weight: 850;
+      font-size:14px;
+      font-weight:850;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -610,56 +568,54 @@
 
     .box p{
       margin:0;
-      color: var(--muted);
-      font-size: 12.5px;
+      color:var(--muted);
+      font-size:12.5px;
       line-height:1.45;
     }
 
     .miniList{
       display:flex;
       flex-direction:column;
-      gap: 10px;
-      margin-top: 10px;
+      gap:10px;
+      margin-top:10px;
     }
 
     .miniItem{
       display:flex;
-      gap: 10px;
+      gap:10px;
       align-items:center;
-      padding: 10px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
+      padding:10px;
+      border-radius:14px;
+      border:1px solid var(--line);
       background: rgba(0,0,0,0.14);
-      cursor: pointer;
-      transition: transform .14s ease, border-color .14s ease, background .14s ease;
+      cursor:pointer;
     }
 
     html[data-theme="light"] .miniItem,
     html[data-theme="glass"] .miniItem{
-      background: rgba(255,255,255,0.42);
+      background: rgba(255,255,255,0.48);
     }
 
     .miniItem:hover{
       border-color: rgba(16,163,127,0.22);
-      transform: translateY(-1px);
     }
 
     .miniArtSm{
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
+      width:34px;
+      height:34px;
+      border-radius:12px;
+      border:1px solid var(--line);
       background: rgba(0,0,0,0.18);
       overflow:hidden;
       display:flex;
       align-items:center;
       justify-content:center;
-      flex: 0 0 auto;
+      flex:0 0 auto;
     }
 
     html[data-theme="light"] .miniArtSm,
     html[data-theme="glass"] .miniArtSm{
-      background: rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.48);
     }
 
     .miniArtSm img{
@@ -675,7 +631,7 @@
 
     .miniName{
       font-weight:800;
-      font-size: 12.5px;
+      font-size:12.5px;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
@@ -683,8 +639,8 @@
     }
 
     .miniMeta{
-      font-size: 11.5px;
-      color: var(--muted);
+      font-size:11.5px;
+      color:var(--muted);
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
@@ -696,40 +652,40 @@
       right:0;
       bottom:0;
       z-index:60;
-      border-top: 1px solid var(--line);
+      border-top:1px solid var(--line);
       background: rgba(11,18,32,0.90);
       backdrop-filter: blur(10px);
     }
 
     .player .inner{
-      max-width: 1380px;
-      margin: 0 auto;
-      padding: 10px 14px;
+      max-width: 1320px;
+      margin:0 auto;
+      padding:10px 14px;
       display:flex;
       align-items:center;
-      gap: 12px;
+      gap:12px;
       justify-content:space-between;
     }
 
     .now{
       display:flex;
-      gap: 10px;
+      gap:10px;
       align-items:center;
       min-width:0;
       flex:1;
     }
 
     .mini{
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      border:1px solid var(--line);
       background: rgba(0,0,0,0.18);
       overflow:hidden;
       display:flex;
       align-items:center;
       justify-content:center;
-      flex: 0 0 auto;
+      flex:0 0 auto;
     }
 
     .mini img{
@@ -738,9 +694,7 @@
       object-fit:cover;
     }
 
-    .nowText{
-      min-width:0;
-    }
+    .nowText{ min-width:0; }
 
     .nowTop{
       display:flex;
@@ -750,10 +704,10 @@
     }
 
     .nowBadge{
-      font-size: 11px;
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(16,163,127,0.30);
+      font-size:11px;
+      padding:4px 9px;
+      border-radius:999px;
+      border:1px solid rgba(16,163,127,0.30);
       background: rgba(16,163,127,0.14);
       color: rgba(220,255,245,0.95);
       line-height:1;
@@ -761,8 +715,8 @@
     }
 
     .nowName{
-      font-weight: 850;
-      font-size: 13px;
+      font-weight:850;
+      font-size:13px;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
@@ -771,16 +725,16 @@
 
     .nowMeta{
       color: var(--muted);
-      font-size: 12px;
+      font-size:12px;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
     }
 
-    .playerActions{
+    .playerControls{
       display:flex;
-      align-items:center;
       gap:10px;
+      align-items:center;
       flex-wrap:wrap;
     }
 
@@ -789,53 +743,34 @@
       align-items:center;
       gap:8px;
       color: var(--muted);
-      font-size: 12.5px;
-      font-weight: 600;
+      font-size:12px;
+      font-weight:600;
     }
 
     input[type="range"]{
-      width: 100px;
+      width:96px;
       accent-color: var(--accent);
     }
 
     audio{
-      width: 300px;
+      width: 320px;
       max-width: 42vw;
-      height: 38px;
+      height: 36px;
       filter: drop-shadow(0 10px 22px rgba(0,0,0,0.35));
     }
 
-    @media (max-width: 1160px){
+    @media (max-width: 1120px){
       .sn-shell{
-        grid-template-columns: minmax(250px, 290px) minmax(0, 1fr);
+        grid-template-columns: minmax(250px, 300px) minmax(0, 1fr);
       }
-
-      .sn-right{
-        display:none;
-      }
+      .sn-right{ display:none; }
     }
 
     @media (max-width: 860px){
-      .sn-page{
-        padding: 10px 10px 128px;
-      }
-
-      .sn-shell{
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .sn-left{
-        position: static;
-      }
-
-      .controls{
-        grid-template-columns: 1fr;
-      }
-
-      .actionsRow{
-        gap: 8px;
-      }
+      .sn-shell{ grid-template-columns: 1fr; }
+      .sn-left{ position:static; }
+      .controls{ grid-template-columns:1fr; }
+      .actionsRow{ gap:8px; }
 
       .actionsRow > div:last-child{
         width:100%;
@@ -847,24 +782,15 @@
         justify-content:center;
       }
 
-      .station{
-        padding: 10px;
-      }
-
-      .stationActions{
-        flex-direction:row;
-        align-items:center;
-        gap: 8px;
-      }
-
       .player .inner{
         flex-direction:column;
         align-items:stretch;
         gap:10px;
       }
 
-      .playerActions{
+      .playerControls{
         width:100%;
+        justify-content:flex-start;
       }
 
       audio{
@@ -872,12 +798,14 @@
         max-width:100%;
       }
 
-      .nowMeta{
-        white-space:normal;
-      }
+      .nowMeta{ white-space:normal; }
     }
 
     @media (max-width: 560px){
+      .sn-page{
+        padding: 10px 10px 132px;
+      }
+
       .sn-left,
       .sn-center-head,
       .box{
@@ -895,6 +823,10 @@
         align-items:flex-start;
       }
 
+      .sn-theme{
+        width:100%;
+      }
+
       .sn-hero{
         font-size: 30px;
       }
@@ -904,10 +836,12 @@
       }
 
       .station{
-        flex-direction:column;
+        padding: 10px;
       }
 
       .stationActions{
+        flex-direction:row;
+        align-items:center;
         width:100%;
       }
 
@@ -920,8 +854,7 @@
       }
 
       input[type="range"]{
-        flex:1;
-        width:auto;
+        width:100%;
       }
     }
   </style>
@@ -930,6 +863,7 @@
 
 <main class="sn-page">
   <div class="sn-shell">
+
     <aside class="sn-card sn-left">
       <div class="sn-brand-row">
         <div class="sn-brand">
@@ -977,17 +911,17 @@
       <div class="sn-center-head" id="radio">
         <div class="controls">
           <div class="field">
-            <span style="opacity:.9">🔎</span>
+            <span aria-hidden="true">🔎</span>
             <input id="q" type="text" placeholder="Search station name" autocomplete="off" maxlength="80">
           </div>
 
           <div class="field">
-            <span style="opacity:.9">🏷️</span>
+            <span aria-hidden="true">🏷️</span>
             <input id="tag" type="text" placeholder="Tag or genre" autocomplete="off" maxlength="60">
           </div>
 
           <div class="field">
-            <span style="opacity:.9">⇅</span>
+            <span aria-hidden="true">⇅</span>
             <select id="sort">
               <option value="votes">Top voted</option>
               <option value="clickcount">Most played</option>
@@ -999,7 +933,7 @@
         </div>
 
         <div class="actionsRow">
-          <div class="switchWrap" title="Limit results to US stations">
+          <div class="switchWrap" title="Limit results to United States stations">
             <span>US only</span>
             <div id="usSwitch" class="switch on" role="switch" aria-checked="true" tabindex="0"></div>
           </div>
@@ -1012,7 +946,7 @@
 
         <div class="metaRow">
           <div id="status">Loading…</div>
-          <div class="metaHint">Try “NPR”, “jazz”, “talk”, “gospel”, “afrobeats”.</div>
+          <div>Try “NPR”, “jazz”, “talk”, “gospel”, “afrobeats”.</div>
         </div>
       </div>
 
@@ -1033,7 +967,7 @@
       <div class="box">
         <h3>
           Favorites
-          <button id="clearFavsBtn" class="miniBtn" type="button">Clear</button>
+          <button id="clearFavsBtn" class="btn slim" type="button">Clear</button>
         </h3>
         <p id="favHint">Tap Save on a station.</p>
         <div id="favList" class="miniList"></div>
@@ -1042,12 +976,13 @@
       <div class="box">
         <h3>
           Recently played
-          <button id="clearRecentBtn" class="miniBtn" type="button">Clear</button>
+          <button id="clearRecentBtn" class="btn slim" type="button">Clear</button>
         </h3>
         <p id="recentHint">Nothing yet. Tap Play on a station.</p>
         <div id="recentList" class="miniList"></div>
       </div>
     </aside>
+
   </div>
 </main>
 
@@ -1056,7 +991,8 @@
     <div class="now">
       <div class="mini" id="miniArt" aria-hidden="true">
         <svg class="fallbackIcon" viewBox="0 0 24 24" fill="none">
-          <path d="M9 18V6l10 6-10 6Z" fill="rgba(255,255,255,0.75)"/>
+          <path d="M12 3a9 9 0 1 0 9 9" stroke="rgba(255,255,255,0.72)" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M10 16V8l7 4-7 4Z" fill="rgba(255,255,255,0.78)"/>
         </svg>
       </div>
 
@@ -1069,7 +1005,7 @@
       </div>
     </div>
 
-    <div class="playerActions">
+    <div class="playerControls">
       <button id="stopBtn" class="btn slim" type="button">Stop</button>
 
       <label class="volWrap">
@@ -1087,10 +1023,11 @@
 
   const state = {
     page: 0,
-    limit: 12,
+    limit: 24,
     loading: false,
     usOnly: true,
     stations: [],
+    filtered: [],
     lastQueryKey: '',
     autoLoadArmed: true,
     playingUuid: '',
@@ -1099,42 +1036,36 @@
     recent: []
   };
 
-  const LS_THEME = 'sn_coming_theme_v2';
+  const LS_THEME = 'sn_coming_theme_v3';
   const LS_FAVS = 'sn_radio_favorites_v3';
   const LS_RECENT = 'sn_radio_recent_v3';
 
   const LOCAL_PREVIEW_STATIONS = [
-    { uuid:'d1',  name:'BBC Radio 1',              countrycode:'UK', state:'',           codec:'MP3', bitrate:128, tags:'pop,hits,uk',            lastcheckok:1, favicon:'', stream:'https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one' },
-    { uuid:'d2',  name:'Classic FM',               countrycode:'UK', state:'',           codec:'MP3', bitrate:128, tags:'classical,calm,uk',      lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/ClassicFM' },
-    { uuid:'d3',  name:'LBC London',               countrycode:'UK', state:'',           codec:'MP3', bitrate:128, tags:'talk,news,uk',           lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/LBCLondon' },
-    { uuid:'d4',  name:'Smooth Country',           countrycode:'UK', state:'',           codec:'MP3', bitrate:128, tags:'country,smooth,uk',      lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/SmoothCountry' },
-    { uuid:'d5',  name:'Capital XTRA Reloaded',    countrycode:'UK', state:'',           codec:'MP3', bitrate:128, tags:'r&b,urban,uk',           lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/CapitalXTRAReloaded' },
-    { uuid:'d6',  name:'Heart 90s',                countrycode:'UK', state:'',           codec:'MP3', bitrate:128, tags:'90s,pop,uk',             lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/Heart90s' },
-    { uuid:'d7',  name:'Gold London',              countrycode:'UK', state:'',           codec:'MP3', bitrate:128, tags:'oldies,uk',              lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/Gold' },
-    { uuid:'d8',  name:'ClassicFM Calm',           countrycode:'UK', state:'',           codec:'MP3', bitrate:128, tags:'classical,calm,sleep',   lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/ClassicFMCalmMP3' },
-    { uuid:'d9',  name:'NPR Program Stream',       countrycode:'US', state:'Washington', codec:'MP3', bitrate:128, tags:'npr,talk,news,us',       lastcheckok:1, favicon:'', stream:'https://npr-ice.streamguys1.com/live.mp3' },
-    { uuid:'d10', name:'WNYC FM',                  countrycode:'US', state:'New York',   codec:'MP3', bitrate:128, tags:'talk,news,public,us',    lastcheckok:1, favicon:'', stream:'https://fm939.wnyc.org/wnycfm-tunein' },
-    { uuid:'d11', name:'KEXP 90.3 FM',             countrycode:'US', state:'Seattle',    codec:'AAC', bitrate:128, tags:'indie,alt,us',           lastcheckok:1, favicon:'', stream:'https://kexp-mp3-128.streamguys1.com/kexp128.mp3' },
-    { uuid:'d12', name:'SomaFM Groove Salad',      countrycode:'US', state:'California', codec:'AAC', bitrate:128, tags:'ambient,chill,us',       lastcheckok:1, favicon:'', stream:'https://ice2.somafm.com/groovesalad-128-aac' },
-    { uuid:'d13', name:'SomaFM Indie Pop Rocks',   countrycode:'US', state:'California', codec:'AAC', bitrate:128, tags:'indie,pop,us',           lastcheckok:1, favicon:'', stream:'https://ice2.somafm.com/indiepop-128-aac' },
-    { uuid:'d14', name:'WBGO Jazz 88.3',           countrycode:'US', state:'New Jersey', codec:'AAC', bitrate:128, tags:'jazz,us',                lastcheckok:1, favicon:'', stream:'https://wbgo.streamguys1.com/wbgo' },
-    { uuid:'d15', name:'WQXR Classical',           countrycode:'US', state:'New York',   codec:'AAC', bitrate:128, tags:'classical,us',           lastcheckok:1, favicon:'', stream:'https://stream.wqxr.org/wqxr-web' },
-    { uuid:'d16', name:'KCRW Eclectic24',          countrycode:'US', state:'California', codec:'AAC', bitrate:128, tags:'eclectic,indie,us',      lastcheckok:1, favicon:'', stream:'https://kcrw.streamguys1.com/kcrw_192k_mp3_e24_internet_radio' },
-    { uuid:'d17', name:'Hot 108 JAMZ',             countrycode:'US', state:'',           codec:'MP3', bitrate:128, tags:'hiphop,urban,us',        lastcheckok:1, favicon:'', stream:'https://sc.hot108.com:4000/stream' },
-    { uuid:'d18', name:'Radio Paradise Main Mix',  countrycode:'US', state:'California', codec:'AAC', bitrate:320, tags:'eclectic,rock,us',       lastcheckok:1, favicon:'', stream:'https://stream.radioparadise.com/aac-320' },
-    { uuid:'d19', name:'Jazz Radio Blues',         countrycode:'FR', state:'',           codec:'MP3', bitrate:128, tags:'jazz,blues',             lastcheckok:1, favicon:'', stream:'https://jazzblues.ice.infomaniak.ch/jazzblues-high.mp3' },
-    { uuid:'d20', name:'Radio Swiss Jazz',         countrycode:'CH', state:'',           codec:'MP3', bitrate:128, tags:'jazz,smooth',            lastcheckok:1, favicon:'', stream:'https://stream.srg-ssr.ch/m/rsj/mp3_128' },
-    { uuid:'d21', name:'Afrobeats Radio',          countrycode:'NG', state:'Lagos',      codec:'MP3', bitrate:128, tags:'afrobeats,naija,africa', lastcheckok:1, favicon:'', stream:'https://stream.zeno.fm/fyn8eh3h5f8uv' },
-    { uuid:'d22', name:'Nigeria Info FM',          countrycode:'NG', state:'Lagos',      codec:'AAC', bitrate:128, tags:'talk,news,naija',        lastcheckok:1, favicon:'', stream:'https://playerservices.streamtheworld.com/api/livestream-redirect/NIGERIAINFOFMAAC.aac' },
-    { uuid:'d23', name:'Praise World Radio',       countrycode:'NG', state:'Lagos',      codec:'MP3', bitrate:128, tags:'gospel,naija',           lastcheckok:1, favicon:'', stream:'https://stream.zeno.fm/0r0xa792kwzuv' },
-    { uuid:'d24', name:'KISS FM Berlin',           countrycode:'DE', state:'Berlin',     codec:'AAC', bitrate:128, tags:'alternative,europe',     lastcheckok:1, favicon:'', stream:'https://stream.kissfm.de/kissfm.aac' },
-    { uuid:'d25', name:'Radio Paradise Rock Mix',  countrycode:'US', state:'California', codec:'AAC', bitrate:320, tags:'rock,eclectic,us',       lastcheckok:1, favicon:'', stream:'https://stream.radioparadise.com/rock-320' },
-    { uuid:'d26', name:'SomaFM Space Station',     countrycode:'US', state:'California', codec:'AAC', bitrate:128, tags:'ambient,electronic,us',  lastcheckok:1, favicon:'', stream:'https://ice2.somafm.com/spacestation-128-aac' },
-    { uuid:'d27', name:'SomaFM PopTron',           countrycode:'US', state:'California', codec:'MP3', bitrate:128, tags:'electropop,indie,us',    lastcheckok:1, favicon:'', stream:'https://ice2.somafm.com/poptron-128-mp3' },
-    { uuid:'d28', name:'WAMU',                     countrycode:'US', state:'Washington', codec:'MP3', bitrate:128, tags:'news,talk,public,us',    lastcheckok:1, favicon:'', stream:'https://wamu-1.streamguys1.com/wamu-1' },
-    { uuid:'d29', name:'KUOW',                     countrycode:'US', state:'Seattle',    codec:'MP3', bitrate:128, tags:'talk,public,us',         lastcheckok:1, favicon:'', stream:'https://playerservices.streamtheworld.com/api/livestream-redirect/KUOWFM.mp3' },
-    { uuid:'d30', name:'Jazz24',                   countrycode:'US', state:'Seattle',    codec:'MP3', bitrate:128, tags:'jazz,us',                lastcheckok:1, favicon:'', stream:'https://live.wostreaming.net/direct/ppm-jazz24mp3-ibc1' }
+    { uuid:'l1',  name:'BBC Radio 1',             countrycode:'UK', state:'',            codec:'MP3', bitrate:128, tags:'pop,hits,uk',             lastcheckok:1, favicon:'', stream:'https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one' },
+    { uuid:'l2',  name:'Classic FM',              countrycode:'UK', state:'',            codec:'MP3', bitrate:128, tags:'classical,calm,uk',      lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/ClassicFM' },
+    { uuid:'l3',  name:'LBC London',              countrycode:'UK', state:'',            codec:'MP3', bitrate:128, tags:'talk,news,uk',           lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/LBCLondon' },
+    { uuid:'l4',  name:'Smooth Country',          countrycode:'UK', state:'',            codec:'MP3', bitrate:128, tags:'country,smooth,uk',      lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/SmoothCountry' },
+    { uuid:'l5',  name:'Capital XTRA Reloaded',   countrycode:'UK', state:'',            codec:'MP3', bitrate:128, tags:'r&b,urban,uk',           lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/CapitalXTRAReloaded' },
+    { uuid:'l6',  name:'Heart 90s',               countrycode:'UK', state:'',            codec:'MP3', bitrate:128, tags:'90s,pop,uk',             lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/Heart90s' },
+    { uuid:'l7',  name:'Gold London',             countrycode:'UK', state:'',            codec:'MP3', bitrate:128, tags:'oldies,uk',              lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/Gold' },
+    { uuid:'l8',  name:'NPR Program Stream',      countrycode:'US', state:'Washington',  codec:'MP3', bitrate:128, tags:'npr,talk,news,us',       lastcheckok:1, favicon:'', stream:'https://npr-ice.streamguys1.com/live.mp3' },
+    { uuid:'l9',  name:'WNYC FM',                 countrycode:'US', state:'New York',    codec:'MP3', bitrate:128, tags:'talk,news,public,us',    lastcheckok:1, favicon:'', stream:'https://fm939.wnyc.org/wnycfm-tunein' },
+    { uuid:'l10', name:'KEXP 90.3 FM',            countrycode:'US', state:'Seattle',     codec:'AAC', bitrate:128, tags:'indie,alt,us',           lastcheckok:1, favicon:'', stream:'https://kexp-mp3-128.streamguys1.com/kexp128.mp3' },
+    { uuid:'l11', name:'SomaFM Groove Salad',     countrycode:'US', state:'California',  codec:'AAC', bitrate:128, tags:'ambient,chill,us',       lastcheckok:1, favicon:'', stream:'https://ice2.somafm.com/groovesalad-128-aac' },
+    { uuid:'l12', name:'SomaFM Indie Pop Rocks',  countrycode:'US', state:'California',  codec:'AAC', bitrate:128, tags:'indie,pop,us',           lastcheckok:1, favicon:'', stream:'https://ice2.somafm.com/indiepop-128-aac' },
+    { uuid:'l13', name:'WBGO Jazz 88.3',          countrycode:'US', state:'New Jersey',  codec:'AAC', bitrate:128, tags:'jazz,us',                lastcheckok:1, favicon:'', stream:'https://wbgo.streamguys1.com/wbgo' },
+    { uuid:'l14', name:'WQXR Classical',          countrycode:'US', state:'New York',    codec:'AAC', bitrate:128, tags:'classical,us',           lastcheckok:1, favicon:'', stream:'https://stream.wqxr.org/wqxr-web' },
+    { uuid:'l15', name:'KCRW Eclectic24',         countrycode:'US', state:'California',  codec:'AAC', bitrate:128, tags:'eclectic,indie,us',      lastcheckok:1, favicon:'', stream:'https://kcrw.streamguys1.com/kcrw_192k_mp3_e24_internet_radio' },
+    { uuid:'l16', name:'Hot 108 JAMZ',            countrycode:'US', state:'',            codec:'MP3', bitrate:128, tags:'hiphop,urban,us',        lastcheckok:1, favicon:'', stream:'https://sc.hot108.com:4000/stream' },
+    { uuid:'l17', name:'Afrobeats Radio',         countrycode:'NG', state:'Lagos',       codec:'MP3', bitrate:128, tags:'afrobeats,naija,africa', lastcheckok:1, favicon:'', stream:'https://stream.zeno.fm/fyn8eh3h5f8uv' },
+    { uuid:'l18', name:'Nigeria Info FM',         countrycode:'NG', state:'Lagos',       codec:'AAC', bitrate:128, tags:'talk,news,naija',        lastcheckok:1, favicon:'', stream:'https://playerservices.streamtheworld.com/api/livestream-redirect/NIGERIAINFOFMAAC.aac' },
+    { uuid:'l19', name:'Praise World Radio',      countrycode:'NG', state:'Lagos',       codec:'MP3', bitrate:128, tags:'gospel,naija',           lastcheckok:1, favicon:'', stream:'https://stream.zeno.fm/0r0xa792kwzuv' },
+    { uuid:'l20', name:'Radio Paradise Main Mix', countrycode:'US', state:'California',  codec:'AAC', bitrate:320, tags:'eclectic,rock,us',       lastcheckok:1, favicon:'', stream:'https://stream.radioparadise.com/aac-320' }
   ];
+
+  function isLocalFileMode(){
+    return window.location.protocol === 'file:';
+  }
 
   function escapeHtml(str){
     return String(str ?? '')
@@ -1152,10 +1083,6 @@
         <path d="M10 16V8l7 4-7 4Z" fill="currentColor"/>
       </svg>
     `;
-  }
-
-  function isLocalFileMode(){
-    return window.location.protocol === 'file:';
   }
 
   function firstTags(tags){
@@ -1198,6 +1125,7 @@
   function applyTheme(theme){
     const allowed = ['dark','light','glass'];
     const finalTheme = allowed.includes(theme) ? theme : 'dark';
+
     document.documentElement.setAttribute('data-theme', finalTheme);
     localStorage.setItem(LS_THEME, finalTheme);
     el('themeSelect').value = finalTheme;
@@ -1205,7 +1133,7 @@
     const colors = {
       dark: '#0b1220',
       light: '#f4f7fb',
-      glass: '#dce8f5'
+      glass: '#dfe8f4'
     };
 
     const meta = document.querySelector('meta[name="theme-color"]');
@@ -1213,31 +1141,35 @@
   }
 
   function localFavsLoad(){
-    try {
+    try{
       const raw = localStorage.getItem(LS_FAVS);
       const data = JSON.parse(raw || '[]');
       return Array.isArray(data) ? data : [];
-    } catch {
+    }catch{
       return [];
     }
   }
 
   function localFavsSave(items){
-    try { localStorage.setItem(LS_FAVS, JSON.stringify(items)); } catch {}
+    try{
+      localStorage.setItem(LS_FAVS, JSON.stringify(items));
+    }catch{}
   }
 
   function recentLoad(){
-    try {
+    try{
       const raw = localStorage.getItem(LS_RECENT);
       const data = JSON.parse(raw || '[]');
       return Array.isArray(data) ? data : [];
-    } catch {
+    }catch{
       return [];
     }
   }
 
   function recentSave(items){
-    try { localStorage.setItem(LS_RECENT, JSON.stringify(items)); } catch {}
+    try{
+      localStorage.setItem(LS_RECENT, JSON.stringify(items));
+    }catch{}
   }
 
   function favHas(uuid){
@@ -1368,7 +1300,9 @@
       state.favorites = [stationMinimal(station), ...state.favorites.filter(f => String(f.uuid) !== uuid)];
     }
 
-    if (state.favorites.length > 30) state.favorites = state.favorites.slice(0, 30);
+    if (state.favorites.length > 40) {
+      state.favorites = state.favorites.slice(0, 40);
+    }
 
     localFavsSave(state.favorites);
     renderFavorites();
@@ -1378,7 +1312,9 @@
   function addRecent(station){
     const s = stationMinimal(station);
     state.recent = [s, ...state.recent.filter(x => String(x.uuid) !== String(s.uuid))];
-    if (state.recent.length > 12) state.recent = state.recent.slice(0, 12);
+    if (state.recent.length > 18) {
+      state.recent = state.recent.slice(0, 18);
+    }
     recentSave(state.recent);
     renderRecent();
   }
@@ -1467,8 +1403,9 @@
   function updateStationButtons(){
     document.querySelectorAll('.station').forEach((row) => {
       const uuid = row.dataset.uuid || '';
-      const playBtn = row.querySelector('.btn.primary');
-      const saveBtn = row.querySelectorAll('.btn')[1];
+      const buttons = row.querySelectorAll('.btn');
+      const playBtn = buttons[0];
+      const saveBtn = buttons[1];
 
       if (playBtn) {
         const isPlaying = uuid && uuid === String(state.playingUuid);
@@ -1506,10 +1443,12 @@
   }
 
   function getLocalFallbackPage(){
-    const all = getLocalFilteredStations();
+    if (!state.filtered.length) {
+      state.filtered = getLocalFilteredStations();
+    }
     const start = state.page * state.limit;
     const end = start + state.limit;
-    return all.slice(start, end);
+    return state.filtered.slice(start, end);
   }
 
   async function fetchStations({reset=false} = {}){
@@ -1519,6 +1458,7 @@
     if (reset) {
       state.page = 0;
       state.stations = [];
+      state.filtered = [];
       el('list').innerHTML = '';
       el('loadMore').style.display = 'none';
       showMessage('');
@@ -1538,9 +1478,11 @@
 
     try {
       let incoming = [];
+      let totalCount = 0;
 
       if (isLocalFileMode()) {
         incoming = getLocalFallbackPage();
+        totalCount = state.filtered.length;
       } else {
         const url = new URL('/api/stations', window.location.origin);
         url.searchParams.set('q', el('q').value.trim());
@@ -1575,6 +1517,7 @@
         }
 
         incoming = Array.isArray(data.stations) ? data.stations : [];
+        totalCount = Number(data.count || 0);
       }
 
       if (reset) {
@@ -1595,8 +1538,9 @@
       updateStationButtons();
 
       const shown = state.stations.length;
-      const localModeLabel = isLocalFileMode() ? ' (local preview)' : '';
-      setStatus(`Showing ${shown} station${shown === 1 ? '' : 's'}${state.usOnly ? ' (US)' : ''}${localModeLabel}`);
+      const localLabel = isLocalFileMode() ? ' (local preview)' : '';
+      const countLabel = totalCount > shown ? `Showing ${shown} stations` : `Showing ${shown} station${shown === 1 ? '' : 's'}`;
+      setStatus(`${countLabel}${state.usOnly ? ' (US)' : ''}${localLabel}`);
 
       if (shown === 0) {
         showMessage(`<div class="notice">No results. Try a different name or tag.</div>`);
@@ -1614,6 +1558,7 @@
     } catch (e) {
       if (isLocalFileMode()) {
         showMessage(`<div class="notice">Local preview mode is active.</div>`);
+        setStatus('Showing local preview stations');
       } else {
         showMessage(`
           <div class="errorBox">
@@ -1634,6 +1579,7 @@
     el('nowBadge').style.display = 'inline-flex';
 
     const mini = el('miniArt');
+
     if (s.favicon) {
       mini.innerHTML = '';
       const img = document.createElement('img');
@@ -1796,6 +1742,7 @@
   window.addEventListener('scroll', () => {
     if (!state.autoLoadArmed) return;
     if (state.loading) return;
+
     const btn = el('loadMore');
     if (btn.style.display === 'none') return;
 
@@ -1803,7 +1750,9 @@
     if (nearBottom) {
       state.autoLoadArmed = false;
       fetchStations({reset:false}).finally(() => {
-        setTimeout(() => state.autoLoadArmed = true, 500);
+        setTimeout(() => {
+          state.autoLoadArmed = true;
+        }, 450);
       });
     }
   });
@@ -1818,9 +1767,10 @@
     state.favorites = localFavsLoad();
     renderFavorites();
 
+    updateUsSwitch();
+
     el('audio').volume = Number(el('vol').value || 0.8);
 
-    updateUsSwitch();
     fetchStations({reset:true});
   })();
 </script>
