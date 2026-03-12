@@ -10,51 +10,61 @@
     :root,
     :root[data-theme="dark"]{
       --bg: #0b1220;
-      --bg-2: #08111c;
+      --bg2: #08101d;
       --panel: rgba(255,255,255,0.06);
       --panel2: rgba(255,255,255,0.08);
+      --panel3: rgba(255,255,255,0.04);
       --line: rgba(255,255,255,0.10);
-      --text: rgba(255,255,255,0.92);
+      --line-strong: rgba(255,255,255,0.14);
+      --text: rgba(255,255,255,0.94);
       --muted: rgba(148,163,184,0.92);
-      --soft: rgba(255,255,255,0.55);
+      --soft: rgba(255,255,255,0.58);
       --accent: #10a37f;
-      --accent-2: #0c8a6b;
+      --accent-2: #0b8a6b;
       --danger: #ef4444;
       --shadow: 0 18px 45px rgba(0,0,0,0.55);
+      --shadow-soft: 0 12px 28px rgba(0,0,0,0.30);
       --r12: 12px;
       --r14: 14px;
+      --r16: 16px;
       --r18: 18px;
       --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
     }
 
     :root[data-theme="light"]{
       --bg: #f4f7fb;
-      --bg-2: #eef3f9;
-      --panel: rgba(255,255,255,0.88);
-      --panel2: rgba(255,255,255,0.96);
+      --bg2: #edf2f7;
+      --panel: rgba(255,255,255,0.92);
+      --panel2: rgba(255,255,255,0.98);
+      --panel3: rgba(255,255,255,0.82);
       --line: rgba(15,23,42,0.10);
+      --line-strong: rgba(15,23,42,0.16);
       --text: #0f172a;
       --muted: #64748b;
       --soft: #475569;
       --accent: #10a37f;
-      --accent-2: #0c8a6b;
+      --accent-2: #0b8a6b;
       --danger: #dc2626;
       --shadow: 0 14px 34px rgba(2,6,23,0.10);
+      --shadow-soft: 0 10px 24px rgba(2,6,23,0.08);
     }
 
     :root[data-theme="glass"]{
-      --bg: #dfe9f5;
-      --bg-2: #edf4fb;
+      --bg: #dce8f5;
+      --bg2: #edf4fb;
       --panel: rgba(255,255,255,0.36);
       --panel2: rgba(255,255,255,0.48);
+      --panel3: rgba(255,255,255,0.28);
       --line: rgba(15,23,42,0.10);
+      --line-strong: rgba(15,23,42,0.16);
       --text: #0f172a;
       --muted: #475569;
       --soft: #64748b;
       --accent: #10a37f;
-      --accent-2: #0c8a6b;
+      --accent-2: #0b8a6b;
       --danger: #dc2626;
-      --shadow: 0 14px 34px rgba(2,6,23,0.08);
+      --shadow: 0 14px 34px rgba(2,6,23,0.09);
+      --shadow-soft: 0 10px 24px rgba(2,6,23,0.08);
     }
 
     *{ box-sizing:border-box; }
@@ -65,9 +75,9 @@
       margin:0;
       font-family:var(--font);
       background:
-        radial-gradient(38rem 24rem at 15% 10%, rgba(16,163,127,0.10), transparent 55%),
-        radial-gradient(36rem 24rem at 85% 15%, rgba(2,132,199,0.08), transparent 55%),
-        linear-gradient(180deg, var(--bg), var(--bg-2));
+        radial-gradient(40rem 26rem at 14% 10%, rgba(16,163,127,0.10), transparent 56%),
+        radial-gradient(34rem 24rem at 86% 12%, rgba(2,132,199,0.08), transparent 58%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
       color:var(--text);
       font-size:14px;
       line-height:1.45;
@@ -76,23 +86,21 @@
 
     a{ color:inherit; text-decoration:none; }
     button, input, select, audio{ font:inherit; }
-    img{ max-width:100%; display:block; }
 
     .sn-page{
-      max-width: 1320px;
+      max-width: 1380px;
       margin: 0 auto;
-      padding: 16px 12px 100px;
+      padding: 14px 12px 112px;
     }
 
     .sn-shell{
       display:grid;
-      grid-template-columns: minmax(250px, 320px) minmax(0, 1fr) minmax(250px, 300px);
+      grid-template-columns: minmax(250px, 290px) minmax(0, 1fr) minmax(230px, 270px);
       gap: 14px;
       align-items:start;
     }
 
-    .sn-card,
-    .box{
+    .sn-card{
       border-radius: var(--r18);
       border: 1px solid var(--line);
       background: linear-gradient(180deg, var(--panel2), var(--panel));
@@ -103,7 +111,7 @@
     .sn-left{
       position: sticky;
       top: 14px;
-      padding: 16px;
+      padding: 14px;
     }
 
     .sn-brand-row{
@@ -111,7 +119,7 @@
       align-items:flex-start;
       justify-content:space-between;
       gap:12px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .sn-brand{
@@ -120,7 +128,7 @@
 
     .sn-brand-title{
       margin:0;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 900;
       letter-spacing: .16em;
       white-space:nowrap;
@@ -131,8 +139,8 @@
     .sn-brand-sub{
       margin-top: 4px;
       color: var(--muted);
-      font-size: 11.5px;
-      line-height: 1.4;
+      font-size: 12px;
+      line-height: 1.35;
     }
 
     .sn-theme{
@@ -141,20 +149,25 @@
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.02);
       color: var(--text);
-      padding: 0 10px;
+      padding: 0 11px;
       outline: 0;
-      font-size: 12px;
+      min-width: 78px;
+    }
+
+    html[data-theme="light"] .sn-theme,
+    html[data-theme="glass"] .sn-theme{
+      background: rgba(255,255,255,0.45);
     }
 
     .sn-pill{
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding: 8px 11px;
+      padding: 8px 12px;
       border-radius: 999px;
       border: 1px solid rgba(16,163,127,0.22);
       background: rgba(16,163,127,0.12);
-      font-size: 12px;
+      font-size: 12.5px;
       font-weight: 700;
       color: var(--text);
       margin-bottom: 14px;
@@ -170,22 +183,24 @@
 
     .sn-hero{
       margin:0 0 10px;
-      font-size: clamp(30px, 4vw, 42px);
-      line-height: 1.02;
+      font-size: clamp(28px, 4vw, 38px);
+      line-height: 0.98;
       letter-spacing: -.03em;
       font-weight: 900;
+      max-width: 10ch;
     }
 
     .sn-copy{
       color: var(--muted);
       font-size: 13px;
       line-height: 1.65;
+      max-width: 34ch;
     }
 
     .sn-bullets{
       display:grid;
       gap:10px;
-      margin: 16px 0 16px;
+      margin: 16px 0;
     }
 
     .sn-bullet{
@@ -217,34 +232,55 @@
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin-top: 2px;
+      margin-top: 4px;
     }
 
-    .btn{
+    .btn,
+    .miniBtn{
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.04);
       color: var(--text);
       border-radius: 12px;
-      padding: 10px 12px;
-      font-size: 12.5px;
-      font-weight: 700;
       cursor:pointer;
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:8px;
-      transition: background .14s ease, border-color .14s ease, transform .14s ease;
       user-select:none;
       white-space: nowrap;
+      transition: background .14s ease, border-color .14s ease, transform .14s ease;
     }
 
-    .btn:hover{
+    html[data-theme="light"] .btn,
+    html[data-theme="light"] .miniBtn,
+    html[data-theme="glass"] .btn,
+    html[data-theme="glass"] .miniBtn{
+      background: rgba(255,255,255,0.36);
+    }
+
+    .btn:hover,
+    .miniBtn:hover{
       background: rgba(16,163,127,0.10);
       border-color: rgba(16,163,127,0.22);
     }
 
-    .btn:active{
+    .btn:active,
+    .miniBtn:active{
       transform: translateY(1px);
+    }
+
+    .btn{
+      padding: 10px 12px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .btn.slim,
+    .miniBtn{
+      padding: 8px 11px;
+      font-size: 12.5px;
+      border-radius: 12px;
+      font-weight: 700;
     }
 
     .btn.primary{
@@ -252,22 +288,10 @@
       border-color: rgba(16,163,127,0.24);
     }
 
-    .btn.slim{
-      padding: 8px 11px;
-      font-size: 12px;
-      border-radius: 12px;
-    }
-
-    .btn.is-playing{
-      cursor: default;
-      border-color: rgba(16,163,127,0.42);
-      background: rgba(16,163,127,0.26);
-    }
-
     .sn-note{
       margin-top: 14px;
       color: var(--soft);
-      font-size: 12.5px;
+      font-size: 13px;
       line-height: 1.6;
     }
 
@@ -276,7 +300,7 @@
       padding-top: 12px;
       border-top: 1px solid var(--line);
       color: var(--muted);
-      font-size: 12px;
+      font-size: 13px;
     }
 
     .sn-center{
@@ -287,21 +311,21 @@
     .sn-center-head{
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 8;
       padding: 12px;
       border-bottom: 1px solid var(--line);
-      background: linear-gradient(to bottom, rgba(11,18,32,0.92), rgba(11,18,32,0.72));
+      background: linear-gradient(to bottom, rgba(11,18,32,0.94), rgba(11,18,32,0.76));
       backdrop-filter: blur(10px);
     }
 
     html[data-theme="light"] .sn-center-head,
     html[data-theme="glass"] .sn-center-head{
-      background: linear-gradient(to bottom, rgba(255,255,255,0.92), rgba(255,255,255,0.80));
+      background: linear-gradient(to bottom, rgba(255,255,255,0.96), rgba(255,255,255,0.84));
     }
 
     .controls{
       display:grid;
-      grid-template-columns: 1.2fr 1fr .85fr;
+      grid-template-columns: 1.18fr 1fr .86fr;
       gap: 10px;
       align-items:center;
     }
@@ -319,7 +343,7 @@
 
     html[data-theme="light"] .field,
     html[data-theme="glass"] .field{
-      background: rgba(255,255,255,0.36);
+      background: rgba(255,255,255,0.42);
     }
 
     .field input,
@@ -357,12 +381,12 @@
 
     html[data-theme="light"] .switchWrap,
     html[data-theme="glass"] .switchWrap{
-      background: rgba(255,255,255,0.36);
+      background: rgba(255,255,255,0.42);
     }
 
     .switchWrap span{
       color: var(--muted);
-      font-size: 12px;
+      font-size: 12.5px;
       font-weight: 600;
     }
 
@@ -406,8 +430,12 @@
       align-items:center;
       justify-content:space-between;
       color: var(--muted);
-      font-size: 12px;
+      font-size: 12.5px;
       flex-wrap:wrap;
+    }
+
+    .metaHint{
+      color: var(--soft);
     }
 
     .list{
@@ -470,7 +498,7 @@
 
     .name{
       font-weight: 850;
-      font-size: 13px;
+      font-size: 14px;
       line-height: 1.25;
       margin: 2px 0 7px;
       overflow:hidden;
@@ -493,7 +521,7 @@
       border: 1px solid var(--line);
       background: rgba(0,0,0,0.14);
       color: var(--muted);
-      font-size: 10.5px;
+      font-size: 11.5px;
       line-height: 1;
     }
 
@@ -516,6 +544,12 @@
       flex:0 0 auto;
     }
 
+    .btn.is-playing{
+      cursor: default;
+      border-color: rgba(16,163,127,0.42);
+      background: rgba(16,163,127,0.26);
+    }
+
     .loadRow{
       padding: 0 12px 14px;
       display:flex;
@@ -530,7 +564,7 @@
       background: rgba(0,0,0,0.14);
       padding: 12px;
       color: var(--muted);
-      font-size: 12.5px;
+      font-size: 13px;
     }
 
     html[data-theme="light"] .notice,
@@ -557,12 +591,16 @@
     }
 
     .box{
+      border-radius: var(--r18);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--panel2), var(--panel));
+      box-shadow: var(--shadow);
       padding: 12px;
     }
 
     .box h3{
       margin:0 0 8px;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 850;
       display:flex;
       align-items:center;
@@ -573,7 +611,7 @@
     .box p{
       margin:0;
       color: var(--muted);
-      font-size: 12px;
+      font-size: 12.5px;
       line-height:1.45;
     }
 
@@ -593,6 +631,7 @@
       border: 1px solid var(--line);
       background: rgba(0,0,0,0.14);
       cursor: pointer;
+      transition: transform .14s ease, border-color .14s ease, background .14s ease;
     }
 
     html[data-theme="light"] .miniItem,
@@ -602,6 +641,7 @@
 
     .miniItem:hover{
       border-color: rgba(16,163,127,0.22);
+      transform: translateY(-1px);
     }
 
     .miniArtSm{
@@ -635,7 +675,7 @@
 
     .miniName{
       font-weight:800;
-      font-size: 12px;
+      font-size: 12.5px;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
@@ -643,7 +683,7 @@
     }
 
     .miniMeta{
-      font-size: 11px;
+      font-size: 11.5px;
       color: var(--muted);
       white-space:nowrap;
       overflow:hidden;
@@ -662,7 +702,7 @@
     }
 
     .player .inner{
-      max-width: 1320px;
+      max-width: 1380px;
       margin: 0 auto;
       padding: 10px 14px;
       display:flex;
@@ -706,11 +746,12 @@
       display:flex;
       align-items:center;
       gap:8px;
+      flex-wrap:wrap;
     }
 
     .nowBadge{
-      font-size: 10px;
-      padding: 4px 8px;
+      font-size: 11px;
+      padding: 4px 9px;
       border-radius: 999px;
       border: 1px solid rgba(16,163,127,0.30);
       background: rgba(16,163,127,0.14);
@@ -721,7 +762,7 @@
 
     .nowName{
       font-weight: 850;
-      font-size: 12.5px;
+      font-size: 13px;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
@@ -730,31 +771,58 @@
 
     .nowMeta{
       color: var(--muted);
-      font-size: 11.5px;
+      font-size: 12px;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
     }
 
+    .playerActions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .volWrap{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      color: var(--muted);
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+
+    input[type="range"]{
+      width: 100px;
+      accent-color: var(--accent);
+    }
+
     audio{
-      width: 340px;
-      max-width: 46vw;
+      width: 300px;
+      max-width: 42vw;
       height: 38px;
       filter: drop-shadow(0 10px 22px rgba(0,0,0,0.35));
     }
 
-    @media (max-width: 1080px){
+    @media (max-width: 1160px){
       .sn-shell{
         grid-template-columns: minmax(250px, 290px) minmax(0, 1fr);
       }
+
       .sn-right{
         display:none;
       }
     }
 
-    @media (max-width: 820px){
+    @media (max-width: 860px){
+      .sn-page{
+        padding: 10px 10px 128px;
+      }
+
       .sn-shell{
         grid-template-columns: 1fr;
+        gap: 12px;
       }
 
       .sn-left{
@@ -795,6 +863,10 @@
         gap:10px;
       }
 
+      .playerActions{
+        width:100%;
+      }
+
       audio{
         width:100%;
         max-width:100%;
@@ -805,19 +877,17 @@
       }
     }
 
-    @media (max-width: 520px){
-      .sn-page{
-        padding: 10px 10px 132px;
-      }
-
-      .sn-left{
-        padding: 12px;
-      }
-
+    @media (max-width: 560px){
+      .sn-left,
       .sn-center-head,
       .box{
         padding-left: 10px;
         padding-right: 10px;
+      }
+
+      .sn-left{
+        padding-top: 12px;
+        padding-bottom: 12px;
       }
 
       .sn-brand-row{
@@ -826,19 +896,32 @@
       }
 
       .sn-hero{
-        font-size: 31px;
+        font-size: 30px;
       }
 
       .list{
         padding: 10px;
       }
 
-      .sn-actions{
+      .station{
+        flex-direction:column;
+      }
+
+      .stationActions{
         width:100%;
       }
 
-      .sn-actions .btn{
+      .stationActions .btn{
         flex:1 1 0;
+      }
+
+      .volWrap{
+        width:100%;
+      }
+
+      input[type="range"]{
+        flex:1;
+        width:auto;
       }
     }
   </style>
@@ -916,7 +999,7 @@
         </div>
 
         <div class="actionsRow">
-          <div class="switchWrap" title="Limit results to United States stations">
+          <div class="switchWrap" title="Limit results to US stations">
             <span>US only</span>
             <div id="usSwitch" class="switch on" role="switch" aria-checked="true" tabindex="0"></div>
           </div>
@@ -929,7 +1012,7 @@
 
         <div class="metaRow">
           <div id="status">Loading…</div>
-          <div>Try “NPR”, “jazz”, “talk”, “gospel”, “afrobeats”.</div>
+          <div class="metaHint">Try “NPR”, “jazz”, “talk”, “gospel”, “afrobeats”.</div>
         </div>
       </div>
 
@@ -950,7 +1033,7 @@
       <div class="box">
         <h3>
           Favorites
-          <button id="clearFavsBtn" class="btn slim" type="button">Clear</button>
+          <button id="clearFavsBtn" class="miniBtn" type="button">Clear</button>
         </h3>
         <p id="favHint">Tap Save on a station.</p>
         <div id="favList" class="miniList"></div>
@@ -959,7 +1042,7 @@
       <div class="box">
         <h3>
           Recently played
-          <button id="clearRecentBtn" class="btn slim" type="button">Clear</button>
+          <button id="clearRecentBtn" class="miniBtn" type="button">Clear</button>
         </h3>
         <p id="recentHint">Nothing yet. Tap Play on a station.</p>
         <div id="recentList" class="miniList"></div>
@@ -986,8 +1069,14 @@
       </div>
     </div>
 
-    <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+    <div class="playerActions">
       <button id="stopBtn" class="btn slim" type="button">Stop</button>
+
+      <label class="volWrap">
+        <span>Volume</span>
+        <input id="vol" type="range" min="0" max="1" step="0.01" value="0.8">
+      </label>
+
       <audio id="audio" controls preload="none"></audio>
     </div>
   </div>
@@ -1010,40 +1099,42 @@
     recent: []
   };
 
-  const LS_THEME = 'sn_coming_theme_v1';
-  const LS_FAVS = 'sn_radio_favorites_v_real_2';
-  const LS_RECENT = 'sn_radio_recent_v_real_2';
+  const LS_THEME = 'sn_coming_theme_v2';
+  const LS_FAVS = 'sn_radio_favorites_v3';
+  const LS_RECENT = 'sn_radio_recent_v3';
 
-  const LOCAL_FALLBACK_STATIONS = [
-    { uuid:'s1', name:'BBC Radio 1', countrycode:'UK', state:'', codec:'MP3', bitrate:128, tags:'pop,hits,uk', lastcheckok:1, favicon:'', stream:'https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one' },
-    { uuid:'s2', name:'Classic FM', countrycode:'UK', state:'', codec:'MP3', bitrate:128, tags:'classical,calm,uk', lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/ClassicFM' },
-    { uuid:'s3', name:'LBC London', countrycode:'UK', state:'', codec:'MP3', bitrate:128, tags:'talk,news,uk', lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/LBCLondon' },
-    { uuid:'s4', name:'Smooth Country', countrycode:'UK', state:'', codec:'MP3', bitrate:128, tags:'country,smooth,uk', lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/SmoothCountry' },
-    { uuid:'s5', name:'Capital XTRA Reloaded', countrycode:'UK', state:'', codec:'MP3', bitrate:128, tags:'r&b,urban,uk', lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/CapitalXTRAReloaded' },
-    { uuid:'s6', name:'Heart 90s', countrycode:'UK', state:'', codec:'MP3', bitrate:128, tags:'90s,pop,uk', lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/Heart90s' },
-    { uuid:'s7', name:'Gold London', countrycode:'UK', state:'', codec:'MP3', bitrate:128, tags:'oldies,uk', lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/Gold' },
-    { uuid:'s8', name:'ClassicFM Calm', countrycode:'UK', state:'', codec:'MP3', bitrate:128, tags:'classical,calm,sleep', lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/ClassicFMCalmMP3' },
-    { uuid:'s9', name:'NPR Program Stream', countrycode:'US', state:'Washington', codec:'MP3', bitrate:128, tags:'npr,talk,news,us', lastcheckok:1, favicon:'', stream:'https://npr-ice.streamguys1.com/live.mp3' },
-    { uuid:'s10', name:'WNYC FM', countrycode:'US', state:'New York', codec:'MP3', bitrate:128, tags:'talk,news,public,us', lastcheckok:1, favicon:'', stream:'https://fm939.wnyc.org/wnycfm-tunein' },
-    { uuid:'s11', name:'KEXP 90.3 FM', countrycode:'US', state:'Seattle', codec:'AAC', bitrate:128, tags:'indie,alt,us', lastcheckok:1, favicon:'', stream:'https://kexp-mp3-128.streamguys1.com/kexp128.mp3' },
-    { uuid:'s12', name:'SomaFM Groove Salad', countrycode:'US', state:'California', codec:'AAC', bitrate:128, tags:'ambient,chill,us', lastcheckok:1, favicon:'', stream:'https://ice2.somafm.com/groovesalad-128-aac' },
-    { uuid:'s13', name:'SomaFM Indie Pop Rocks', countrycode:'US', state:'California', codec:'AAC', bitrate:128, tags:'indie,pop,us', lastcheckok:1, favicon:'', stream:'https://ice2.somafm.com/indiepop-128-aac' },
-    { uuid:'s14', name:'SomaFM Jazz24', countrycode:'US', state:'California', codec:'AAC', bitrate:128, tags:'jazz,us', lastcheckok:1, favicon:'', stream:'https://ice2.somafm.com/jazz24-128-mp3' },
-    { uuid:'s15', name:'WBGO Jazz 88.3', countrycode:'US', state:'New Jersey', codec:'AAC', bitrate:128, tags:'jazz,us', lastcheckok:1, favicon:'', stream:'https://wbgo.streamguys1.com/wbgo' },
-    { uuid:'s16', name:'WQXR Classical', countrycode:'US', state:'New York', codec:'AAC', bitrate:128, tags:'classical,us', lastcheckok:1, favicon:'', stream:'https://stream.wqxr.org/wqxr-web' },
-    { uuid:'s17', name:'KCRW Eclectic24', countrycode:'US', state:'California', codec:'AAC', bitrate:128, tags:'eclectic,indie,us', lastcheckok:1, favicon:'', stream:'https://kcrw.streamguys1.com/kcrw_192k_mp3_e24_internet_radio' },
-    { uuid:'s18', name:'Hot 108 JAMZ', countrycode:'US', state:'', codec:'MP3', bitrate:128, tags:'hiphop,urban,us', lastcheckok:1, favicon:'', stream:'https://sc.hot108.com:4000/stream' },
-    { uuid:'s19', name:'Afrobeats Radio', countrycode:'NG', state:'Lagos', codec:'MP3', bitrate:128, tags:'afrobeats,naija,africa', lastcheckok:1, favicon:'', stream:'https://stream.zeno.fm/fyn8eh3h5f8uv' },
-    { uuid:'s20', name:'Nigeria Info FM', countrycode:'NG', state:'Lagos', codec:'AAC', bitrate:128, tags:'talk,news,naija', lastcheckok:1, favicon:'', stream:'https://playerservices.streamtheworld.com/api/livestream-redirect/NIGERIAINFOFMAAC.aac' },
-    { uuid:'s21', name:'Praise World Radio', countrycode:'NG', state:'Lagos', codec:'MP3', bitrate:128, tags:'gospel,naija', lastcheckok:1, favicon:'', stream:'https://stream.zeno.fm/0r0xa792kwzuv' },
-    { uuid:'s22', name:'Radio Paradise Main Mix', countrycode:'US', state:'California', codec:'AAC', bitrate:320, tags:'eclectic,rock,us', lastcheckok:1, favicon:'', stream:'https://stream.radioparadise.com/aac-320' },
-    { uuid:'s23', name:'Jazz Radio Blues', countrycode:'FR', state:'', codec:'MP3', bitrate:128, tags:'jazz,blues', lastcheckok:1, favicon:'', stream:'https://jazzblues.ice.infomaniak.ch/jazzblues-high.mp3' },
-    { uuid:'s24', name:'Radio Swiss Jazz', countrycode:'CH', state:'', codec:'MP3', bitrate:128, tags:'jazz,smooth', lastcheckok:1, favicon:'', stream:'https://stream.srg-ssr.ch/m/rsj/mp3_128' }
+  const LOCAL_PREVIEW_STATIONS = [
+    { uuid:'d1',  name:'BBC Radio 1',              countrycode:'UK', state:'',           codec:'MP3', bitrate:128, tags:'pop,hits,uk',            lastcheckok:1, favicon:'', stream:'https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one' },
+    { uuid:'d2',  name:'Classic FM',               countrycode:'UK', state:'',           codec:'MP3', bitrate:128, tags:'classical,calm,uk',      lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/ClassicFM' },
+    { uuid:'d3',  name:'LBC London',               countrycode:'UK', state:'',           codec:'MP3', bitrate:128, tags:'talk,news,uk',           lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/LBCLondon' },
+    { uuid:'d4',  name:'Smooth Country',           countrycode:'UK', state:'',           codec:'MP3', bitrate:128, tags:'country,smooth,uk',      lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/SmoothCountry' },
+    { uuid:'d5',  name:'Capital XTRA Reloaded',    countrycode:'UK', state:'',           codec:'MP3', bitrate:128, tags:'r&b,urban,uk',           lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/CapitalXTRAReloaded' },
+    { uuid:'d6',  name:'Heart 90s',                countrycode:'UK', state:'',           codec:'MP3', bitrate:128, tags:'90s,pop,uk',             lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/Heart90s' },
+    { uuid:'d7',  name:'Gold London',              countrycode:'UK', state:'',           codec:'MP3', bitrate:128, tags:'oldies,uk',              lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/Gold' },
+    { uuid:'d8',  name:'ClassicFM Calm',           countrycode:'UK', state:'',           codec:'MP3', bitrate:128, tags:'classical,calm,sleep',   lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/ClassicFMCalmMP3' },
+    { uuid:'d9',  name:'NPR Program Stream',       countrycode:'US', state:'Washington', codec:'MP3', bitrate:128, tags:'npr,talk,news,us',       lastcheckok:1, favicon:'', stream:'https://npr-ice.streamguys1.com/live.mp3' },
+    { uuid:'d10', name:'WNYC FM',                  countrycode:'US', state:'New York',   codec:'MP3', bitrate:128, tags:'talk,news,public,us',    lastcheckok:1, favicon:'', stream:'https://fm939.wnyc.org/wnycfm-tunein' },
+    { uuid:'d11', name:'KEXP 90.3 FM',             countrycode:'US', state:'Seattle',    codec:'AAC', bitrate:128, tags:'indie,alt,us',           lastcheckok:1, favicon:'', stream:'https://kexp-mp3-128.streamguys1.com/kexp128.mp3' },
+    { uuid:'d12', name:'SomaFM Groove Salad',      countrycode:'US', state:'California', codec:'AAC', bitrate:128, tags:'ambient,chill,us',       lastcheckok:1, favicon:'', stream:'https://ice2.somafm.com/groovesalad-128-aac' },
+    { uuid:'d13', name:'SomaFM Indie Pop Rocks',   countrycode:'US', state:'California', codec:'AAC', bitrate:128, tags:'indie,pop,us',           lastcheckok:1, favicon:'', stream:'https://ice2.somafm.com/indiepop-128-aac' },
+    { uuid:'d14', name:'WBGO Jazz 88.3',           countrycode:'US', state:'New Jersey', codec:'AAC', bitrate:128, tags:'jazz,us',                lastcheckok:1, favicon:'', stream:'https://wbgo.streamguys1.com/wbgo' },
+    { uuid:'d15', name:'WQXR Classical',           countrycode:'US', state:'New York',   codec:'AAC', bitrate:128, tags:'classical,us',           lastcheckok:1, favicon:'', stream:'https://stream.wqxr.org/wqxr-web' },
+    { uuid:'d16', name:'KCRW Eclectic24',          countrycode:'US', state:'California', codec:'AAC', bitrate:128, tags:'eclectic,indie,us',      lastcheckok:1, favicon:'', stream:'https://kcrw.streamguys1.com/kcrw_192k_mp3_e24_internet_radio' },
+    { uuid:'d17', name:'Hot 108 JAMZ',             countrycode:'US', state:'',           codec:'MP3', bitrate:128, tags:'hiphop,urban,us',        lastcheckok:1, favicon:'', stream:'https://sc.hot108.com:4000/stream' },
+    { uuid:'d18', name:'Radio Paradise Main Mix',  countrycode:'US', state:'California', codec:'AAC', bitrate:320, tags:'eclectic,rock,us',       lastcheckok:1, favicon:'', stream:'https://stream.radioparadise.com/aac-320' },
+    { uuid:'d19', name:'Jazz Radio Blues',         countrycode:'FR', state:'',           codec:'MP3', bitrate:128, tags:'jazz,blues',             lastcheckok:1, favicon:'', stream:'https://jazzblues.ice.infomaniak.ch/jazzblues-high.mp3' },
+    { uuid:'d20', name:'Radio Swiss Jazz',         countrycode:'CH', state:'',           codec:'MP3', bitrate:128, tags:'jazz,smooth',            lastcheckok:1, favicon:'', stream:'https://stream.srg-ssr.ch/m/rsj/mp3_128' },
+    { uuid:'d21', name:'Afrobeats Radio',          countrycode:'NG', state:'Lagos',      codec:'MP3', bitrate:128, tags:'afrobeats,naija,africa', lastcheckok:1, favicon:'', stream:'https://stream.zeno.fm/fyn8eh3h5f8uv' },
+    { uuid:'d22', name:'Nigeria Info FM',          countrycode:'NG', state:'Lagos',      codec:'AAC', bitrate:128, tags:'talk,news,naija',        lastcheckok:1, favicon:'', stream:'https://playerservices.streamtheworld.com/api/livestream-redirect/NIGERIAINFOFMAAC.aac' },
+    { uuid:'d23', name:'Praise World Radio',       countrycode:'NG', state:'Lagos',      codec:'MP3', bitrate:128, tags:'gospel,naija',           lastcheckok:1, favicon:'', stream:'https://stream.zeno.fm/0r0xa792kwzuv' },
+    { uuid:'d24', name:'KISS FM Berlin',           countrycode:'DE', state:'Berlin',     codec:'AAC', bitrate:128, tags:'alternative,europe',     lastcheckok:1, favicon:'', stream:'https://stream.kissfm.de/kissfm.aac' },
+    { uuid:'d25', name:'Radio Paradise Rock Mix',  countrycode:'US', state:'California', codec:'AAC', bitrate:320, tags:'rock,eclectic,us',       lastcheckok:1, favicon:'', stream:'https://stream.radioparadise.com/rock-320' },
+    { uuid:'d26', name:'SomaFM Space Station',     countrycode:'US', state:'California', codec:'AAC', bitrate:128, tags:'ambient,electronic,us',  lastcheckok:1, favicon:'', stream:'https://ice2.somafm.com/spacestation-128-aac' },
+    { uuid:'d27', name:'SomaFM PopTron',           countrycode:'US', state:'California', codec:'MP3', bitrate:128, tags:'electropop,indie,us',    lastcheckok:1, favicon:'', stream:'https://ice2.somafm.com/poptron-128-mp3' },
+    { uuid:'d28', name:'WAMU',                     countrycode:'US', state:'Washington', codec:'MP3', bitrate:128, tags:'news,talk,public,us',    lastcheckok:1, favicon:'', stream:'https://wamu-1.streamguys1.com/wamu-1' },
+    { uuid:'d29', name:'KUOW',                     countrycode:'US', state:'Seattle',    codec:'MP3', bitrate:128, tags:'talk,public,us',         lastcheckok:1, favicon:'', stream:'https://playerservices.streamtheworld.com/api/livestream-redirect/KUOWFM.mp3' },
+    { uuid:'d30', name:'Jazz24',                   countrycode:'US', state:'Seattle',    codec:'MP3', bitrate:128, tags:'jazz,us',                lastcheckok:1, favicon:'', stream:'https://live.wostreaming.net/direct/ppm-jazz24mp3-ibc1' }
   ];
-
-  function isLocalFileMode(){
-    return window.location.protocol === 'file:';
-  }
 
   function escapeHtml(str){
     return String(str ?? '')
@@ -1063,6 +1154,10 @@
     `;
   }
 
+  function isLocalFileMode(){
+    return window.location.protocol === 'file:';
+  }
+
   function firstTags(tags){
     if (!tags) return [];
     return String(tags).split(',').map(t => t.trim()).filter(Boolean).slice(0, 2);
@@ -1077,8 +1172,13 @@
     return parts.filter(Boolean).join(' · ');
   }
 
-  function setStatus(text){ el('status').textContent = text; }
-  function showMessage(html){ el('msg').innerHTML = html; }
+  function setStatus(text){
+    el('status').textContent = text;
+  }
+
+  function showMessage(html){
+    el('msg').innerHTML = html;
+  }
 
   function stationMinimal(s){
     return {
@@ -1105,7 +1205,7 @@
     const colors = {
       dark: '#0b1220',
       light: '#f4f7fb',
-      glass: '#dfe9f5'
+      glass: '#dce8f5'
     };
 
     const meta = document.querySelector('meta[name="theme-color"]');
@@ -1155,8 +1255,8 @@
     }
 
     hint.style.display = 'none';
-
     const frag = document.createDocumentFragment();
+
     state.favorites.slice(0, 20).forEach((s) => {
       const item = document.createElement('div');
       item.className = 'miniItem';
@@ -1211,8 +1311,8 @@
     }
 
     hint.style.display = 'none';
-
     const frag = document.createDocumentFragment();
+
     state.recent.forEach((s) => {
       const item = document.createElement('div');
       item.className = 'miniItem';
@@ -1367,9 +1467,8 @@
   function updateStationButtons(){
     document.querySelectorAll('.station').forEach((row) => {
       const uuid = row.dataset.uuid || '';
-      const buttons = row.querySelectorAll('.btn');
-      const playBtn = buttons[0];
-      const saveBtn = buttons[1];
+      const playBtn = row.querySelector('.btn.primary');
+      const saveBtn = row.querySelectorAll('.btn')[1];
 
       if (playBtn) {
         const isPlaying = uuid && uuid === String(state.playingUuid);
@@ -1384,12 +1483,12 @@
     });
   }
 
-  function getLocalFallbackPage(){
+  function getLocalFilteredStations(){
     const q = el('q').value.trim().toLowerCase();
     const tag = el('tag').value.trim().toLowerCase();
     const sort = el('sort').value;
 
-    let items = LOCAL_FALLBACK_STATIONS.filter((station) => {
+    let items = LOCAL_PREVIEW_STATIONS.filter((station) => {
       const nameMatch = !q || station.name.toLowerCase().includes(q);
       const tagMatch = !tag || station.tags.toLowerCase().includes(tag);
       const usMatch = !state.usOnly || station.countrycode === 'US';
@@ -1403,9 +1502,14 @@
       return a.name.localeCompare(b.name);
     });
 
+    return items;
+  }
+
+  function getLocalFallbackPage(){
+    const all = getLocalFilteredStations();
     const start = state.page * state.limit;
     const end = start + state.limit;
-    return items.slice(start, end);
+    return all.slice(start, end);
   }
 
   async function fetchStations({reset=false} = {}){
@@ -1662,7 +1766,10 @@
     resetPlayingState();
     el('nowName').textContent = 'No station selected';
     el('nowMeta').textContent = 'Tap Play on a station to start listening';
-    el('miniArt').innerHTML = iconFallback();
+  });
+
+  el('vol').addEventListener('input', () => {
+    el('audio').volume = Number(el('vol').value || 0.8);
   });
 
   el('audio').addEventListener('ended', () => {
@@ -1711,8 +1818,9 @@
     state.favorites = localFavsLoad();
     renderFavorites();
 
+    el('audio').volume = Number(el('vol').value || 0.8);
+
     updateUsSwitch();
-    el('miniArt').innerHTML = iconFallback();
     fetchStations({reset:true});
   })();
 </script>
