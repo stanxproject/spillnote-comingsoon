@@ -10,33 +10,30 @@
     :root,
     :root[data-theme="dark"]{
       --bg: #0b1220;
-      --bg-soft: #101a2d;
-      --panel: rgba(255,255,255,0.05);
-      --panel-2: rgba(255,255,255,0.08);
-      --panel-3: rgba(255,255,255,0.03);
+      --bg-deep: #07111f;
+      --panel: rgba(255,255,255,0.06);
+      --panel2: rgba(255,255,255,0.08);
       --line: rgba(255,255,255,0.10);
-      --line-2: rgba(255,255,255,0.16);
-      --text: rgba(255,255,255,0.94);
+      --line-strong: rgba(255,255,255,0.14);
+      --text: rgba(255,255,255,0.92);
       --muted: rgba(148,163,184,0.92);
-      --soft: rgba(255,255,255,0.58);
+      --soft: rgba(255,255,255,0.55);
       --accent: #10a37f;
       --accent-2: #0c8a6b;
       --danger: #ef4444;
-      --shadow: 0 18px 45px rgba(0,0,0,0.58);
-      --radius-1: 12px;
-      --radius-2: 16px;
-      --radius-3: 18px;
-      --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", sans-serif;
+      --shadow: 0 18px 45px rgba(0,0,0,0.55);
+      --r14: 14px;
+      --r18: 18px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
     }
 
     :root[data-theme="light"]{
       --bg: #f4f7fb;
-      --bg-soft: #edf3fb;
-      --panel: rgba(255,255,255,0.86);
-      --panel-2: rgba(255,255,255,0.96);
-      --panel-3: rgba(255,255,255,0.72);
+      --bg-deep: #edf3fb;
+      --panel: rgba(255,255,255,0.88);
+      --panel2: rgba(255,255,255,0.96);
       --line: rgba(15,23,42,0.10);
-      --line-2: rgba(15,23,42,0.14);
+      --line-strong: rgba(15,23,42,0.14);
       --text: #0f172a;
       --muted: #64748b;
       --soft: #475569;
@@ -47,13 +44,12 @@
     }
 
     :root[data-theme="glass"]{
-      --bg: #dfe8f4;
-      --bg-soft: #edf3fa;
-      --panel: rgba(255,255,255,0.28);
-      --panel-2: rgba(255,255,255,0.38);
-      --panel-3: rgba(255,255,255,0.22);
+      --bg: #dfe9f5;
+      --bg-deep: #d7e3f1;
+      --panel: rgba(255,255,255,0.35);
+      --panel2: rgba(255,255,255,0.46);
       --line: rgba(15,23,42,0.10);
-      --line-2: rgba(15,23,42,0.14);
+      --line-strong: rgba(15,23,42,0.14);
       --text: #0f172a;
       --muted: #475569;
       --soft: #64748b;
@@ -71,9 +67,9 @@
       margin:0;
       font-family:var(--font);
       background:
-        radial-gradient(40rem 26rem at 12% 10%, rgba(16,163,127,0.10), transparent 55%),
-        radial-gradient(36rem 24rem at 88% 14%, rgba(2,132,199,0.08), transparent 55%),
-        linear-gradient(180deg, var(--bg), var(--bg));
+        radial-gradient(38rem 24rem at 15% 10%, rgba(16,163,127,0.10), transparent 55%),
+        radial-gradient(36rem 24rem at 85% 15%, rgba(2,132,199,0.08), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg-deep));
       color:var(--text);
       font-size:14px;
       line-height:1.45;
@@ -87,23 +83,23 @@
     .sn-page{
       max-width: 1320px;
       margin: 0 auto;
-      padding: 16px 12px 108px;
+      padding: 16px 12px 116px;
     }
 
     .sn-shell{
       display:grid;
-      grid-template-columns: minmax(250px, 320px) minmax(0, 1fr) minmax(240px, 290px);
+      grid-template-columns: minmax(250px, 320px) minmax(0, 1fr) minmax(250px, 300px);
       gap: 14px;
       align-items:start;
     }
 
-    .sn-card,
-    .box{
-      border-radius: var(--radius-3);
+    .sn-card{
+      border-radius: var(--r18);
       border: 1px solid var(--line);
-      background: linear-gradient(180deg, var(--panel-2), var(--panel));
+      background: linear-gradient(180deg, var(--panel2), var(--panel));
       box-shadow: var(--shadow);
       backdrop-filter: blur(12px);
+      min-width:0;
     }
 
     .sn-left{
@@ -120,35 +116,39 @@
       margin-bottom: 14px;
     }
 
-    .sn-brand{
-      min-width:0;
-    }
+    .sn-brand{ min-width:0; }
 
     .sn-brand-title{
       margin:0;
-      font-size:15px;
-      font-weight:900;
-      letter-spacing:.16em;
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: .16em;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
     }
 
     .sn-brand-sub{
-      margin-top:4px;
-      color:var(--muted);
-      font-size:12px;
-      line-height:1.4;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height:1.45;
     }
 
     .sn-theme{
       min-height: 36px;
       border-radius: 12px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
+      background: rgba(255,255,255,0.02);
       color: var(--text);
       padding: 0 12px;
-      outline:0;
+      outline: 0;
+      flex: 0 0 auto;
+    }
+
+    html[data-theme="light"] .sn-theme,
+    html[data-theme="glass"] .sn-theme{
+      background: rgba(255,255,255,0.55);
     }
 
     .sn-pill{
@@ -157,10 +157,11 @@
       gap:8px;
       padding: 9px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(16,163,127,0.24);
+      border: 1px solid rgba(16,163,127,0.22);
       background: rgba(16,163,127,0.12);
       font-size: 13px;
       font-weight: 700;
+      color: var(--text);
       margin-bottom: 14px;
     }
 
@@ -169,13 +170,13 @@
       height:8px;
       border-radius:999px;
       background: var(--accent);
-      flex:0 0 auto;
+      flex: 0 0 auto;
     }
 
     .sn-hero{
       margin:0 0 10px;
-      font-size: clamp(32px, 4vw, 46px);
-      line-height: 1.01;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.02;
       letter-spacing: -.03em;
       font-weight: 900;
     }
@@ -189,7 +190,7 @@
     .sn-bullets{
       display:grid;
       gap:10px;
-      margin: 16px 0;
+      margin: 16px 0 16px;
     }
 
     .sn-bullet{
@@ -202,30 +203,30 @@
     }
 
     .sn-check{
-      width:20px;
-      height:20px;
-      border-radius:7px;
-      border:1px solid rgba(16,163,127,0.22);
+      width: 20px;
+      height: 20px;
+      border-radius: 7px;
+      border: 1px solid rgba(16,163,127,0.22);
       background: rgba(16,163,127,0.12);
       color: var(--accent);
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:12px;
-      font-weight:900;
-      flex:0 0 auto;
-      margin-top:1px;
+      font-size: 12px;
+      font-weight: 900;
+      flex: 0 0 auto;
+      margin-top: 1px;
     }
 
     .sn-actions{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin-top:4px;
+      margin-top: 2px;
     }
 
     .btn{
-      border:1px solid var(--line);
+      border: 1px solid var(--line);
       background: rgba(255,255,255,0.04);
       color: var(--text);
       border-radius: 12px;
@@ -239,7 +240,8 @@
       gap:8px;
       transition: background .14s ease, border-color .14s ease, transform .14s ease;
       user-select:none;
-      white-space:nowrap;
+      white-space: nowrap;
+      min-height: 40px;
     }
 
     .btn:hover{
@@ -247,7 +249,9 @@
       border-color: rgba(16,163,127,0.22);
     }
 
-    .btn:active{ transform: translateY(1px); }
+    .btn:active{
+      transform: translateY(1px);
+    }
 
     .btn.primary{
       background: rgba(16,163,127,0.16);
@@ -258,12 +262,7 @@
       padding: 8px 11px;
       font-size: 12.5px;
       border-radius: 12px;
-    }
-
-    .btn.is-playing{
-      cursor: default;
-      border-color: rgba(16,163,127,0.40);
-      background: rgba(16,163,127,0.24);
+      min-height: 36px;
     }
 
     .sn-note{
@@ -281,9 +280,11 @@
       font-size: 13px;
     }
 
-    .sn-center{
+    .sn-center{ min-width:0; }
+
+    .sn-center-card{
+      overflow: hidden;
       min-width:0;
-      overflow:hidden;
     }
 
     .sn-center-head{
@@ -292,7 +293,7 @@
       z-index: 10;
       padding: 12px;
       border-bottom: 1px solid var(--line);
-      background: linear-gradient(to bottom, rgba(11,18,32,0.94), rgba(11,18,32,0.78));
+      background: linear-gradient(to bottom, rgba(11,18,32,0.92), rgba(11,18,32,0.72));
       backdrop-filter: blur(10px);
     }
 
@@ -314,14 +315,15 @@
       border-radius: 14px;
       padding: 9px 11px;
       display:flex;
-      gap:10px;
+      gap: 10px;
       align-items:center;
       min-height: 42px;
+      min-width:0;
     }
 
     html[data-theme="light"] .field,
     html[data-theme="glass"] .field{
-      background: rgba(255,255,255,0.42);
+      background: rgba(255,255,255,0.36);
     }
 
     .field input,
@@ -332,14 +334,17 @@
       background:transparent;
       color:var(--text);
       font-size:13px;
+      min-width:0;
     }
 
-    .field input::placeholder{ color:var(--muted); }
+    .field input::placeholder{
+      color:var(--muted);
+    }
 
     .actionsRow{
       margin-top: 10px;
       display:flex;
-      gap:10px;
+      gap: 10px;
       align-items:center;
       justify-content:space-between;
       flex-wrap:wrap;
@@ -348,16 +353,16 @@
     .switchWrap{
       display:flex;
       align-items:center;
-      gap:9px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid var(--line);
+      gap: 9px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
       background: rgba(0,0,0,0.14);
     }
 
     html[data-theme="light"] .switchWrap,
     html[data-theme="glass"] .switchWrap{
-      background: rgba(255,255,255,0.42);
+      background: rgba(255,255,255,0.36);
     }
 
     .switchWrap span{
@@ -367,14 +372,14 @@
     }
 
     .switch{
-      width:42px;
-      height:24px;
-      border-radius:999px;
-      border:1px solid var(--line);
+      width: 42px;
+      height: 24px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
       background: rgba(255,255,255,0.06);
-      position:relative;
-      cursor:pointer;
-      flex:0 0 auto;
+      position: relative;
+      cursor: pointer;
+      flex: 0 0 auto;
     }
 
     .switch::after{
@@ -385,7 +390,7 @@
       position:absolute;
       top:2px;
       left:2px;
-      background: rgba(255,255,255,0.80);
+      background: rgba(255,255,255,0.78);
       transition: transform 160ms ease, background 160ms ease;
     }
 
@@ -402,11 +407,11 @@
     .metaRow{
       padding: 10px 12px 0;
       display:flex;
-      gap:10px;
+      gap: 10px;
       align-items:center;
       justify-content:space-between;
-      color:var(--muted);
-      font-size:12.5px;
+      color: var(--muted);
+      font-size: 12.5px;
       flex-wrap:wrap;
     }
 
@@ -414,18 +419,20 @@
       padding: 12px;
       display:flex;
       flex-direction:column;
-      gap:10px;
+      gap: 10px;
     }
 
     .station{
-      border-radius: var(--radius-3);
+      border-radius: var(--r18);
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.03);
       padding: 12px;
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
+      display:grid;
+      grid-template-columns: 48px minmax(0, 1fr) 92px;
+      gap: 10px 12px;
+      align-items:start;
       transition: transform 120ms ease, border-color 120ms ease;
+      min-width:0;
     }
 
     .station:hover{
@@ -434,21 +441,23 @@
     }
 
     .art{
-      width:44px;
-      height:44px;
-      border-radius:14px;
-      border:1px solid var(--line);
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
       background: rgba(0,0,0,0.18);
       overflow:hidden;
       display:flex;
       align-items:center;
       justify-content:center;
-      flex:0 0 auto;
+      flex: 0 0 auto;
+      grid-column: 1;
+      grid-row: 1 / span 2;
     }
 
     html[data-theme="light"] .art,
     html[data-theme="glass"] .art{
-      background: rgba(255,255,255,0.48);
+      background: rgba(255,255,255,0.45);
     }
 
     .art img{
@@ -458,21 +467,22 @@
     }
 
     .fallbackIcon{
-      width:20px;
-      height:20px;
-      opacity:.92;
+      width: 20px;
+      height: 20px;
+      opacity: .9;
     }
 
     .info{
-      flex:1;
       min-width:0;
+      grid-column: 2;
+      grid-row: 1 / span 2;
     }
 
     .name{
-      font-weight:850;
-      font-size:14px;
-      line-height:1.25;
-      margin:2px 0 7px;
+      font-weight: 850;
+      font-size: 14px;
+      line-height: 1.3;
+      margin: 2px 0 7px;
       overflow:hidden;
       text-overflow:ellipsis;
       white-space:nowrap;
@@ -481,26 +491,27 @@
     .chips{
       display:flex;
       flex-wrap:wrap;
-      gap:7px;
+      gap: 7px;
+      min-width:0;
     }
 
     .chip{
       display:inline-flex;
       align-items:center;
-      gap:6px;
-      padding:5px 9px;
-      border-radius:999px;
-      border:1px solid var(--line);
+      gap: 6px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
       background: rgba(0,0,0,0.14);
       color: var(--muted);
       font-size: 11.5px;
-      line-height:1;
-      max-width: 100%;
+      line-height: 1.15;
+      max-width:100%;
     }
 
     html[data-theme="light"] .chip,
     html[data-theme="glass"] .chip{
-      background: rgba(255,255,255,0.48);
+      background: rgba(255,255,255,0.45);
     }
 
     .chip.green{
@@ -512,9 +523,22 @@
     .stationActions{
       display:flex;
       flex-direction:column;
-      gap:8px;
-      align-items:flex-end;
+      gap: 8px;
+      align-items:stretch;
+      width: 92px;
       flex:0 0 auto;
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    .stationActions .btn{
+      width:100%;
+    }
+
+    .btn.is-playing{
+      cursor: default;
+      border-color: rgba(16,163,127,0.42);
+      background: rgba(16,163,127,0.26);
     }
 
     .loadRow{
@@ -538,11 +562,16 @@
     html[data-theme="light"] .errorBox,
     html[data-theme="glass"] .notice,
     html[data-theme="glass"] .errorBox{
-      background: rgba(255,255,255,0.48);
+      background: rgba(255,255,255,0.45);
     }
 
-    .errorBox{ border-color: rgba(239,68,68,0.35); }
-    .errorBox b{ color:var(--text); }
+    .errorBox{
+      border-color: rgba(239,68,68,0.35);
+    }
+
+    .errorBox b{
+      color: var(--text);
+    }
 
     .sn-right{
       position: sticky;
@@ -553,13 +582,17 @@
     }
 
     .box{
+      border-radius: var(--r18);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--panel2), var(--panel));
+      box-shadow: var(--shadow);
       padding: 12px;
     }
 
     .box h3{
       margin:0 0 8px;
-      font-size:14px;
-      font-weight:850;
+      font-size: 14px;
+      font-weight: 850;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -568,32 +601,33 @@
 
     .box p{
       margin:0;
-      color:var(--muted);
-      font-size:12.5px;
+      color: var(--muted);
+      font-size: 12.5px;
       line-height:1.45;
     }
 
     .miniList{
       display:flex;
       flex-direction:column;
-      gap:10px;
-      margin-top:10px;
+      gap: 10px;
+      margin-top: 10px;
     }
 
     .miniItem{
       display:flex;
-      gap:10px;
+      gap: 10px;
       align-items:center;
-      padding:10px;
-      border-radius:14px;
-      border:1px solid var(--line);
+      padding: 10px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
       background: rgba(0,0,0,0.14);
-      cursor:pointer;
+      cursor: pointer;
+      min-width:0;
     }
 
     html[data-theme="light"] .miniItem,
     html[data-theme="glass"] .miniItem{
-      background: rgba(255,255,255,0.48);
+      background: rgba(255,255,255,0.42);
     }
 
     .miniItem:hover{
@@ -601,21 +635,21 @@
     }
 
     .miniArtSm{
-      width:34px;
-      height:34px;
-      border-radius:12px;
-      border:1px solid var(--line);
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
       background: rgba(0,0,0,0.18);
       overflow:hidden;
       display:flex;
       align-items:center;
       justify-content:center;
-      flex:0 0 auto;
+      flex: 0 0 auto;
     }
 
     html[data-theme="light"] .miniArtSm,
     html[data-theme="glass"] .miniArtSm{
-      background: rgba(255,255,255,0.48);
+      background: rgba(255,255,255,0.45);
     }
 
     .miniArtSm img{
@@ -631,7 +665,7 @@
 
     .miniName{
       font-weight:800;
-      font-size:12.5px;
+      font-size: 12.5px;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
@@ -639,8 +673,8 @@
     }
 
     .miniMeta{
-      font-size:11.5px;
-      color:var(--muted);
+      font-size: 11.5px;
+      color: var(--muted);
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
@@ -652,40 +686,39 @@
       right:0;
       bottom:0;
       z-index:60;
-      border-top:1px solid var(--line);
-      background: rgba(11,18,32,0.90);
+      border-top: 1px solid var(--line);
+      background: rgba(11,18,32,0.92);
       backdrop-filter: blur(10px);
     }
 
     .player .inner{
       max-width: 1320px;
-      margin:0 auto;
-      padding:10px 14px;
-      display:flex;
+      margin: 0 auto;
+      padding: 10px 14px;
+      display:grid;
+      grid-template-columns: minmax(0,1fr) auto;
+      gap: 12px;
       align-items:center;
-      gap:12px;
-      justify-content:space-between;
     }
 
     .now{
       display:flex;
-      gap:10px;
+      gap: 10px;
       align-items:center;
       min-width:0;
-      flex:1;
     }
 
     .mini{
-      width:38px;
-      height:38px;
-      border-radius:12px;
-      border:1px solid var(--line);
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
       background: rgba(0,0,0,0.18);
       overflow:hidden;
       display:flex;
       align-items:center;
       justify-content:center;
-      flex:0 0 auto;
+      flex: 0 0 auto;
     }
 
     .mini img{
@@ -694,7 +727,9 @@
       object-fit:cover;
     }
 
-    .nowText{ min-width:0; }
+    .nowText{
+      min-width:0;
+    }
 
     .nowTop{
       display:flex;
@@ -704,10 +739,10 @@
     }
 
     .nowBadge{
-      font-size:11px;
-      padding:4px 9px;
-      border-radius:999px;
-      border:1px solid rgba(16,163,127,0.30);
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(16,163,127,0.30);
       background: rgba(16,163,127,0.14);
       color: rgba(220,255,245,0.95);
       line-height:1;
@@ -715,8 +750,8 @@
     }
 
     .nowName{
-      font-weight:850;
-      font-size:13px;
+      font-weight: 850;
+      font-size: 13px;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
@@ -725,7 +760,7 @@
 
     .nowMeta{
       color: var(--muted);
-      font-size:12px;
+      font-size: 12px;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
@@ -733,9 +768,10 @@
 
     .playerControls{
       display:flex;
-      gap:10px;
       align-items:center;
+      gap:10px;
       flex-wrap:wrap;
+      justify-content:flex-end;
     }
 
     .volWrap{
@@ -743,54 +779,136 @@
       align-items:center;
       gap:8px;
       color: var(--muted);
-      font-size:12px;
-      font-weight:600;
+      font-size: 12.5px;
+      font-weight: 700;
     }
 
     input[type="range"]{
-      width:96px;
+      width: 120px;
       accent-color: var(--accent);
     }
 
     audio{
       width: 320px;
       max-width: 42vw;
-      height: 36px;
+      height: 38px;
       filter: drop-shadow(0 10px 22px rgba(0,0,0,0.35));
     }
 
-    @media (max-width: 1120px){
+    @media (max-width: 1180px){
       .sn-shell{
-        grid-template-columns: minmax(250px, 300px) minmax(0, 1fr);
+        grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
       }
-      .sn-right{ display:none; }
+
+      .sn-right{
+        display:none;
+      }
     }
 
-    @media (max-width: 860px){
-      .sn-shell{ grid-template-columns: 1fr; }
-      .sn-left{ position:static; }
-      .controls{ grid-template-columns:1fr; }
-      .actionsRow{ gap:8px; }
+    @media (max-width: 900px){
+      .sn-shell{
+        grid-template-columns: 1fr;
+      }
+
+      .sn-left{
+        position: static;
+      }
+
+      .sn-brand-row{
+        align-items:center;
+      }
+    }
+
+    @media (max-width: 760px){
+      .sn-page{
+        padding: 10px 10px 150px;
+      }
+
+      .controls{
+        grid-template-columns: 1fr;
+      }
+
+      .actionsRow{
+        align-items:stretch;
+      }
 
       .actionsRow > div:last-child{
         width:100%;
-        display:flex;
-      }
-
-      .actionsRow > div:last-child .btn{
-        flex:1 1 0;
-        justify-content:center;
-      }
-
-      .player .inner{
-        flex-direction:column;
-        align-items:stretch;
+        display:grid;
+        grid-template-columns: 1fr 1fr;
         gap:10px;
       }
 
-      .playerControls{
+      .actionsRow > div:last-child .btn{
         width:100%;
+      }
+
+      .station{
+        grid-template-columns: 44px minmax(0,1fr);
+        gap: 10px;
+        padding: 10px;
+      }
+
+      .art{
+        width:44px;
+        height:44px;
+        border-radius: 12px;
+        grid-column: 1;
+        grid-row: 1 / span 2;
+      }
+
+      .stationActions{
+        grid-column: 2;
+        grid-row: 1;
+        width:100%;
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        gap:8px;
+      }
+
+      .info{
+        grid-column: 2;
+        grid-row: 2;
+        min-width:0;
+      }
+
+      .name{
+        white-space:normal;
+        overflow:visible;
+        text-overflow:clip;
+        line-height:1.3;
+        margin-top:0;
+      }
+
+      .chips{
+        gap:6px;
+      }
+
+      .chip{
+        font-size: 11px;
+        padding: 5px 8px;
+        white-space:normal;
+        word-break:break-word;
+      }
+
+      .player .inner{
+        grid-template-columns: 1fr;
+        gap:10px;
+        padding: 10px;
+      }
+
+      .playerControls{
         justify-content:flex-start;
+        width:100%;
+      }
+
+      .volWrap{
+        flex: 1 1 100%;
+      }
+
+      input[type="range"]{
+        width:100%;
+        flex:1;
       }
 
       audio{
@@ -798,29 +916,38 @@
         max-width:100%;
       }
 
-      .nowMeta{ white-space:normal; }
+      .nowMeta{
+        white-space:normal;
+      }
     }
 
-    @media (max-width: 560px){
-      .sn-page{
-        padding: 10px 10px 132px;
+    @media (max-width: 480px){
+      body{
+        font-size:13px;
       }
 
-      .sn-left,
-      .sn-center-head,
-      .box{
-        padding-left: 10px;
-        padding-right: 10px;
+      .sn-page{
+        padding: 8px 8px 160px;
       }
 
       .sn-left{
-        padding-top: 12px;
-        padding-bottom: 12px;
+        padding: 12px;
+        border-radius: 16px;
+      }
+
+      .sn-center-head{
+        padding: 10px;
+      }
+
+      .list{
+        padding: 10px;
+        gap: 8px;
       }
 
       .sn-brand-row{
         flex-direction:column;
         align-items:flex-start;
+        gap:10px;
       }
 
       .sn-theme{
@@ -828,32 +955,85 @@
       }
 
       .sn-hero{
-        font-size: 30px;
+        font-size: 28px;
+        line-height: 1.02;
       }
 
-      .list{
-        padding: 10px;
+      .sn-copy,
+      .sn-bullet,
+      .sn-note{
+        font-size:13px;
       }
 
       .station{
-        padding: 10px;
+        padding: 9px;
+        border-radius: 16px;
+        gap: 8px 10px;
       }
 
-      .stationActions{
-        flex-direction:row;
-        align-items:center;
-        width:100%;
+      .art{
+        width:40px;
+        height:40px;
       }
 
       .stationActions .btn{
-        flex:1 1 0;
+        min-height:34px;
+        padding: 7px 8px;
+        font-size: 12px;
+        border-radius: 11px;
       }
 
-      .volWrap{
+      .name{
+        font-size: 13px;
+      }
+
+      .chip{
+        font-size: 10.5px;
+        padding: 4px 7px;
+        border-radius: 999px;
+      }
+
+      .player{
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+
+      .mini{
+        width:34px;
+        height:34px;
+        border-radius: 10px;
+      }
+
+      .nowName{
+        font-size: 12.5px;
+      }
+
+      .nowMeta{
+        font-size: 11.5px;
+      }
+
+      .btn.slim{
+        min-height:34px;
+        font-size:12px;
+        padding: 7px 10px;
+      }
+    }
+
+    @media (max-width: 360px){
+      .stationActions{
+        grid-template-columns: 1fr;
+      }
+
+      .actionsRow > div:last-child{
+        grid-template-columns: 1fr;
+      }
+
+      .sn-actions{
+        display:grid;
+        grid-template-columns: 1fr;
         width:100%;
       }
 
-      input[type="range"]{
+      .sn-actions .btn{
         width:100%;
       }
     }
@@ -863,7 +1043,6 @@
 
 <main class="sn-page">
   <div class="sn-shell">
-
     <aside class="sn-card sn-left">
       <div class="sn-brand-row">
         <div class="sn-brand">
@@ -907,21 +1086,21 @@
       <div class="sn-footer">© 2026 SPILLNOTE</div>
     </aside>
 
-    <section class="sn-card sn-center" aria-label="Radio">
+    <section class="sn-card sn-center-card sn-center" aria-label="Radio">
       <div class="sn-center-head" id="radio">
         <div class="controls">
           <div class="field">
-            <span aria-hidden="true">🔎</span>
+            <span style="opacity:.9">🔎</span>
             <input id="q" type="text" placeholder="Search station name" autocomplete="off" maxlength="80">
           </div>
 
           <div class="field">
-            <span aria-hidden="true">🏷️</span>
+            <span style="opacity:.9">🏷️</span>
             <input id="tag" type="text" placeholder="Tag or genre" autocomplete="off" maxlength="60">
           </div>
 
           <div class="field">
-            <span aria-hidden="true">⇅</span>
+            <span style="opacity:.9">⇅</span>
             <select id="sort">
               <option value="votes">Top voted</option>
               <option value="clickcount">Most played</option>
@@ -933,7 +1112,7 @@
         </div>
 
         <div class="actionsRow">
-          <div class="switchWrap" title="Limit results to United States stations">
+          <div class="switchWrap" title="Limit results to US stations">
             <span>US only</span>
             <div id="usSwitch" class="switch on" role="switch" aria-checked="true" tabindex="0"></div>
           </div>
@@ -982,7 +1161,6 @@
         <div id="recentList" class="miniList"></div>
       </div>
     </aside>
-
   </div>
 </main>
 
@@ -991,8 +1169,7 @@
     <div class="now">
       <div class="mini" id="miniArt" aria-hidden="true">
         <svg class="fallbackIcon" viewBox="0 0 24 24" fill="none">
-          <path d="M12 3a9 9 0 1 0 9 9" stroke="rgba(255,255,255,0.72)" stroke-width="1.6" stroke-linecap="round"/>
-          <path d="M10 16V8l7 4-7 4Z" fill="rgba(255,255,255,0.78)"/>
+          <path d="M9 18V6l10 6-10 6Z" fill="rgba(255,255,255,0.75)"/>
         </svg>
       </div>
 
@@ -1008,7 +1185,7 @@
     <div class="playerControls">
       <button id="stopBtn" class="btn slim" type="button">Stop</button>
 
-      <label class="volWrap">
+      <label class="volWrap" for="vol">
         <span>Volume</span>
         <input id="vol" type="range" min="0" max="1" step="0.01" value="0.8">
       </label>
@@ -1027,45 +1204,41 @@
     loading: false,
     usOnly: true,
     stations: [],
-    filtered: [],
+    filteredLocalStations: [],
     lastQueryKey: '',
-    autoLoadArmed: true,
     playingUuid: '',
     selectedUuid: '',
     favorites: [],
-    recent: []
+    recent: [],
+    autoLoadArmed: true
   };
 
-  const LS_THEME = 'sn_coming_theme_v3';
+  const LS_THEME = 'sn_coming_theme_v2';
   const LS_FAVS = 'sn_radio_favorites_v3';
   const LS_RECENT = 'sn_radio_recent_v3';
 
-  const LOCAL_PREVIEW_STATIONS = [
-    { uuid:'l1',  name:'BBC Radio 1',             countrycode:'UK', state:'',            codec:'MP3', bitrate:128, tags:'pop,hits,uk',             lastcheckok:1, favicon:'', stream:'https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one' },
-    { uuid:'l2',  name:'Classic FM',              countrycode:'UK', state:'',            codec:'MP3', bitrate:128, tags:'classical,calm,uk',      lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/ClassicFM' },
-    { uuid:'l3',  name:'LBC London',              countrycode:'UK', state:'',            codec:'MP3', bitrate:128, tags:'talk,news,uk',           lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/LBCLondon' },
-    { uuid:'l4',  name:'Smooth Country',          countrycode:'UK', state:'',            codec:'MP3', bitrate:128, tags:'country,smooth,uk',      lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/SmoothCountry' },
-    { uuid:'l5',  name:'Capital XTRA Reloaded',   countrycode:'UK', state:'',            codec:'MP3', bitrate:128, tags:'r&b,urban,uk',           lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/CapitalXTRAReloaded' },
-    { uuid:'l6',  name:'Heart 90s',               countrycode:'UK', state:'',            codec:'MP3', bitrate:128, tags:'90s,pop,uk',             lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/Heart90s' },
-    { uuid:'l7',  name:'Gold London',             countrycode:'UK', state:'',            codec:'MP3', bitrate:128, tags:'oldies,uk',              lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/Gold' },
-    { uuid:'l8',  name:'NPR Program Stream',      countrycode:'US', state:'Washington',  codec:'MP3', bitrate:128, tags:'npr,talk,news,us',       lastcheckok:1, favicon:'', stream:'https://npr-ice.streamguys1.com/live.mp3' },
-    { uuid:'l9',  name:'WNYC FM',                 countrycode:'US', state:'New York',    codec:'MP3', bitrate:128, tags:'talk,news,public,us',    lastcheckok:1, favicon:'', stream:'https://fm939.wnyc.org/wnycfm-tunein' },
-    { uuid:'l10', name:'KEXP 90.3 FM',            countrycode:'US', state:'Seattle',     codec:'AAC', bitrate:128, tags:'indie,alt,us',           lastcheckok:1, favicon:'', stream:'https://kexp-mp3-128.streamguys1.com/kexp128.mp3' },
-    { uuid:'l11', name:'SomaFM Groove Salad',     countrycode:'US', state:'California',  codec:'AAC', bitrate:128, tags:'ambient,chill,us',       lastcheckok:1, favicon:'', stream:'https://ice2.somafm.com/groovesalad-128-aac' },
-    { uuid:'l12', name:'SomaFM Indie Pop Rocks',  countrycode:'US', state:'California',  codec:'AAC', bitrate:128, tags:'indie,pop,us',           lastcheckok:1, favicon:'', stream:'https://ice2.somafm.com/indiepop-128-aac' },
-    { uuid:'l13', name:'WBGO Jazz 88.3',          countrycode:'US', state:'New Jersey',  codec:'AAC', bitrate:128, tags:'jazz,us',                lastcheckok:1, favicon:'', stream:'https://wbgo.streamguys1.com/wbgo' },
-    { uuid:'l14', name:'WQXR Classical',          countrycode:'US', state:'New York',    codec:'AAC', bitrate:128, tags:'classical,us',           lastcheckok:1, favicon:'', stream:'https://stream.wqxr.org/wqxr-web' },
-    { uuid:'l15', name:'KCRW Eclectic24',         countrycode:'US', state:'California',  codec:'AAC', bitrate:128, tags:'eclectic,indie,us',      lastcheckok:1, favicon:'', stream:'https://kcrw.streamguys1.com/kcrw_192k_mp3_e24_internet_radio' },
-    { uuid:'l16', name:'Hot 108 JAMZ',            countrycode:'US', state:'',            codec:'MP3', bitrate:128, tags:'hiphop,urban,us',        lastcheckok:1, favicon:'', stream:'https://sc.hot108.com:4000/stream' },
-    { uuid:'l17', name:'Afrobeats Radio',         countrycode:'NG', state:'Lagos',       codec:'MP3', bitrate:128, tags:'afrobeats,naija,africa', lastcheckok:1, favicon:'', stream:'https://stream.zeno.fm/fyn8eh3h5f8uv' },
-    { uuid:'l18', name:'Nigeria Info FM',         countrycode:'NG', state:'Lagos',       codec:'AAC', bitrate:128, tags:'talk,news,naija',        lastcheckok:1, favicon:'', stream:'https://playerservices.streamtheworld.com/api/livestream-redirect/NIGERIAINFOFMAAC.aac' },
-    { uuid:'l19', name:'Praise World Radio',      countrycode:'NG', state:'Lagos',       codec:'MP3', bitrate:128, tags:'gospel,naija',           lastcheckok:1, favicon:'', stream:'https://stream.zeno.fm/0r0xa792kwzuv' },
-    { uuid:'l20', name:'Radio Paradise Main Mix', countrycode:'US', state:'California',  codec:'AAC', bitrate:320, tags:'eclectic,rock,us',       lastcheckok:1, favicon:'', stream:'https://stream.radioparadise.com/aac-320' }
+  const LOCAL_FALLBACK_STATIONS = [
+    { uuid:'l1', name:'BBC Radio 1', countrycode:'UK', state:'', codec:'MP3', bitrate:128, tags:'pop,hits,uk', lastcheckok:1, favicon:'', stream:'https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one' },
+    { uuid:'l2', name:'Classic FM', countrycode:'UK', state:'', codec:'MP3', bitrate:128, tags:'classical,calm,uk', lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/ClassicFM' },
+    { uuid:'l3', name:'LBC London', countrycode:'UK', state:'', codec:'MP3', bitrate:128, tags:'talk,news,uk', lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/LBCLondon' },
+    { uuid:'l4', name:'Smooth Country', countrycode:'UK', state:'', codec:'MP3', bitrate:128, tags:'country,smooth,uk', lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/SmoothCountry' },
+    { uuid:'l5', name:'Capital XTRA Reloaded', countrycode:'UK', state:'', codec:'MP3', bitrate:128, tags:'r&b,urban,uk', lastcheckok:1, favicon:'', stream:'https://media-ice.musicradio.com/CapitalXTRAReloaded' },
+    { uuid:'l6', name:'NPR Program Stream', countrycode:'US', state:'Washington', codec:'MP3', bitrate:128, tags:'npr,talk,news,us', lastcheckok:1, favicon:'', stream:'https://npr-ice.streamguys1.com/live.mp3' },
+    { uuid:'l7', name:'WNYC FM', countrycode:'US', state:'New York', codec:'MP3', bitrate:128, tags:'talk,news,public,us', lastcheckok:1, favicon:'', stream:'https://fm939.wnyc.org/wnycfm-tunein' },
+    { uuid:'l8', name:'KEXP 90.3 FM', countrycode:'US', state:'Seattle', codec:'AAC', bitrate:128, tags:'indie,alt,us', lastcheckok:1, favicon:'', stream:'https://kexp-mp3-128.streamguys1.com/kexp128.mp3' },
+    { uuid:'l9', name:'SomaFM Groove Salad', countrycode:'US', state:'California', codec:'AAC', bitrate:128, tags:'ambient,chill,us', lastcheckok:1, favicon:'', stream:'https://ice2.somafm.com/groovesalad-128-aac' },
+    { uuid:'l10', name:'SomaFM Indie Pop Rocks', countrycode:'US', state:'California', codec:'AAC', bitrate:128, tags:'indie,pop,us', lastcheckok:1, favicon:'', stream:'https://ice2.somafm.com/indiepop-128-aac' },
+    { uuid:'l11', name:'WBGO Jazz 88.3', countrycode:'US', state:'New Jersey', codec:'AAC', bitrate:128, tags:'jazz,us', lastcheckok:1, favicon:'', stream:'https://wbgo.streamguys1.com/wbgo' },
+    { uuid:'l12', name:'WQXR Classical', countrycode:'US', state:'New York', codec:'AAC', bitrate:128, tags:'classical,us', lastcheckok:1, favicon:'', stream:'https://stream.wqxr.org/wqxr-web' },
+    { uuid:'l13', name:'KCRW Eclectic24', countrycode:'US', state:'California', codec:'AAC', bitrate:128, tags:'eclectic,indie,us', lastcheckok:1, favicon:'', stream:'https://kcrw.streamguys1.com/kcrw_192k_mp3_e24_internet_radio' },
+    { uuid:'l14', name:'Hot 108 JAMZ', countrycode:'US', state:'', codec:'MP3', bitrate:128, tags:'hiphop,urban,us', lastcheckok:1, favicon:'', stream:'https://sc.hot108.com:4000/stream' },
+    { uuid:'l15', name:'Afrobeats Radio', countrycode:'NG', state:'Lagos', codec:'MP3', bitrate:128, tags:'afrobeats,naija,africa', lastcheckok:1, favicon:'', stream:'https://stream.zeno.fm/fyn8eh3h5f8uv' },
+    { uuid:'l16', name:'Nigeria Info FM', countrycode:'NG', state:'Lagos', codec:'AAC', bitrate:128, tags:'talk,news,naija', lastcheckok:1, favicon:'', stream:'https://playerservices.streamtheworld.com/api/livestream-redirect/NIGERIAINFOFMAAC.aac' },
+    { uuid:'l17', name:'Praise World Radio', countrycode:'NG', state:'Lagos', codec:'MP3', bitrate:128, tags:'gospel,naija', lastcheckok:1, favicon:'', stream:'https://stream.zeno.fm/0r0xa792kwzuv' },
+    { uuid:'l18', name:'Radio Paradise Main Mix', countrycode:'US', state:'California', codec:'AAC', bitrate:320, tags:'eclectic,rock,us', lastcheckok:1, favicon:'', stream:'https://stream.radioparadise.com/aac-320' },
+    { uuid:'l19', name:'Jazz Radio Blues', countrycode:'FR', state:'', codec:'MP3', bitrate:128, tags:'jazz,blues', lastcheckok:1, favicon:'', stream:'https://jazzblues.ice.infomaniak.ch/jazzblues-high.mp3' },
+    { uuid:'l20', name:'Radio Swiss Jazz', countrycode:'CH', state:'', codec:'MP3', bitrate:128, tags:'jazz,smooth', lastcheckok:1, favicon:'', stream:'https://stream.srg-ssr.ch/m/rsj/mp3_128' }
   ];
-
-  function isLocalFileMode(){
-    return window.location.protocol === 'file:';
-  }
 
   function escapeHtml(str){
     return String(str ?? '')
@@ -1122,10 +1295,13 @@
     };
   }
 
+  function isLocalFileMode(){
+    return window.location.protocol === 'file:';
+  }
+
   function applyTheme(theme){
     const allowed = ['dark','light','glass'];
     const finalTheme = allowed.includes(theme) ? theme : 'dark';
-
     document.documentElement.setAttribute('data-theme', finalTheme);
     localStorage.setItem(LS_THEME, finalTheme);
     el('themeSelect').value = finalTheme;
@@ -1133,7 +1309,7 @@
     const colors = {
       dark: '#0b1220',
       light: '#f4f7fb',
-      glass: '#dfe8f4'
+      glass: '#dfe9f5'
     };
 
     const meta = document.querySelector('meta[name="theme-color"]');
@@ -1141,35 +1317,35 @@
   }
 
   function localFavsLoad(){
-    try{
+    try {
       const raw = localStorage.getItem(LS_FAVS);
       const data = JSON.parse(raw || '[]');
       return Array.isArray(data) ? data : [];
-    }catch{
+    } catch {
       return [];
     }
   }
 
   function localFavsSave(items){
-    try{
+    try {
       localStorage.setItem(LS_FAVS, JSON.stringify(items));
-    }catch{}
+    } catch {}
   }
 
   function recentLoad(){
-    try{
+    try {
       const raw = localStorage.getItem(LS_RECENT);
       const data = JSON.parse(raw || '[]');
       return Array.isArray(data) ? data : [];
-    }catch{
+    } catch {
       return [];
     }
   }
 
   function recentSave(items){
-    try{
+    try {
       localStorage.setItem(LS_RECENT, JSON.stringify(items));
-    }catch{}
+    } catch {}
   }
 
   function favHas(uuid){
@@ -1186,7 +1362,8 @@
       return;
     }
 
-    hint.style.display = 'none';
+    hint.style.display = 'block';
+    hint.textContent = '';
     const frag = document.createDocumentFragment();
 
     state.favorites.slice(0, 20).forEach((s) => {
@@ -1242,10 +1419,11 @@
       return;
     }
 
-    hint.style.display = 'none';
+    hint.style.display = 'block';
+    hint.textContent = '';
     const frag = document.createDocumentFragment();
 
-    state.recent.forEach((s) => {
+    state.recent.slice(0, 20).forEach((s) => {
       const item = document.createElement('div');
       item.className = 'miniItem';
       item.tabIndex = 0;
@@ -1300,8 +1478,8 @@
       state.favorites = [stationMinimal(station), ...state.favorites.filter(f => String(f.uuid) !== uuid)];
     }
 
-    if (state.favorites.length > 40) {
-      state.favorites = state.favorites.slice(0, 40);
+    if (state.favorites.length > 30) {
+      state.favorites = state.favorites.slice(0, 30);
     }
 
     localFavsSave(state.favorites);
@@ -1312,8 +1490,8 @@
   function addRecent(station){
     const s = stationMinimal(station);
     state.recent = [s, ...state.recent.filter(x => String(x.uuid) !== String(s.uuid))];
-    if (state.recent.length > 18) {
-      state.recent = state.recent.slice(0, 18);
+    if (state.recent.length > 20) {
+      state.recent = state.recent.slice(0, 20);
     }
     recentSave(state.recent);
     renderRecent();
@@ -1369,6 +1547,7 @@
       playBtn.type = 'button';
       playBtn.textContent = isPlaying ? 'Playing' : 'Play';
       playBtn.disabled = isPlaying;
+
       playBtn.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -1379,6 +1558,7 @@
       saveBtn.className = 'btn slim';
       saveBtn.type = 'button';
       saveBtn.textContent = favHas(s.uuid) ? 'Saved' : 'Save';
+
       saveBtn.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -1392,7 +1572,10 @@
       row.appendChild(info);
       row.appendChild(actions);
 
-      row.addEventListener('click', () => playStationFromUserGesture(s));
+      row.addEventListener('click', (e) => {
+        if (e.target.closest('button')) return;
+        playStationFromUserGesture(s);
+      });
 
       frag.appendChild(row);
     });
@@ -1403,9 +1586,8 @@
   function updateStationButtons(){
     document.querySelectorAll('.station').forEach((row) => {
       const uuid = row.dataset.uuid || '';
-      const buttons = row.querySelectorAll('.btn');
-      const playBtn = buttons[0];
-      const saveBtn = buttons[1];
+      const playBtn = row.querySelector('.btn.primary');
+      const saveBtn = row.querySelectorAll('.btn')[1];
 
       if (playBtn) {
         const isPlaying = uuid && uuid === String(state.playingUuid);
@@ -1425,7 +1607,7 @@
     const tag = el('tag').value.trim().toLowerCase();
     const sort = el('sort').value;
 
-    let items = LOCAL_PREVIEW_STATIONS.filter((station) => {
+    let items = LOCAL_FALLBACK_STATIONS.filter((station) => {
       const nameMatch = !q || station.name.toLowerCase().includes(q);
       const tagMatch = !tag || station.tags.toLowerCase().includes(tag);
       const usMatch = !state.usOnly || station.countrycode === 'US';
@@ -1442,15 +1624,6 @@
     return items;
   }
 
-  function getLocalFallbackPage(){
-    if (!state.filtered.length) {
-      state.filtered = getLocalFilteredStations();
-    }
-    const start = state.page * state.limit;
-    const end = start + state.limit;
-    return state.filtered.slice(start, end);
-  }
-
   async function fetchStations({reset=false} = {}){
     if (state.loading) return;
     state.loading = true;
@@ -1458,7 +1631,6 @@
     if (reset) {
       state.page = 0;
       state.stations = [];
-      state.filtered = [];
       el('list').innerHTML = '';
       el('loadMore').style.display = 'none';
       showMessage('');
@@ -1478,11 +1650,15 @@
 
     try {
       let incoming = [];
-      let totalCount = 0;
 
       if (isLocalFileMode()) {
-        incoming = getLocalFallbackPage();
-        totalCount = state.filtered.length;
+        if (reset) {
+          state.filteredLocalStations = getLocalFilteredStations();
+        }
+
+        const start = state.page * state.limit;
+        const end = start + state.limit;
+        incoming = state.filteredLocalStations.slice(start, end);
       } else {
         const url = new URL('/api/stations', window.location.origin);
         url.searchParams.set('q', el('q').value.trim());
@@ -1517,7 +1693,6 @@
         }
 
         incoming = Array.isArray(data.stations) ? data.stations : [];
-        totalCount = Number(data.count || 0);
       }
 
       if (reset) {
@@ -1538,9 +1713,8 @@
       updateStationButtons();
 
       const shown = state.stations.length;
-      const localLabel = isLocalFileMode() ? ' (local preview)' : '';
-      const countLabel = totalCount > shown ? `Showing ${shown} stations` : `Showing ${shown} station${shown === 1 ? '' : 's'}`;
-      setStatus(`${countLabel}${state.usOnly ? ' (US)' : ''}${localLabel}`);
+      const localModeLabel = isLocalFileMode() ? ' (local preview)' : '';
+      setStatus(`Showing ${shown} station${shown === 1 ? '' : 's'}${state.usOnly ? ' (US)' : ''}${localModeLabel}`);
 
       if (shown === 0) {
         showMessage(`<div class="notice">No results. Try a different name or tag.</div>`);
@@ -1558,7 +1732,6 @@
     } catch (e) {
       if (isLocalFileMode()) {
         showMessage(`<div class="notice">Local preview mode is active.</div>`);
-        setStatus('Showing local preview stations');
       } else {
         showMessage(`
           <div class="errorBox">
@@ -1624,6 +1797,7 @@
     audio.load();
 
     const p = audio.play();
+
     if (p && typeof p.then === 'function') {
       p.then(() => {
         state.playingUuid = String(s.uuid || '');
@@ -1696,12 +1870,14 @@
     localFavsSave(state.favorites);
     renderFavorites();
     updateStationButtons();
+    el('favHint').textContent = 'Tap Save on a station.';
   });
 
   el('clearRecentBtn').addEventListener('click', () => {
     state.recent = [];
     recentSave(state.recent);
     renderRecent();
+    el('recentHint').textContent = 'Nothing yet. Tap Play on a station.';
   });
 
   el('stopBtn').addEventListener('click', () => {
@@ -1742,7 +1918,6 @@
   window.addEventListener('scroll', () => {
     if (!state.autoLoadArmed) return;
     if (state.loading) return;
-
     const btn = el('loadMore');
     if (btn.style.display === 'none') return;
 
